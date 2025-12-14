@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyundai Tucson 2016 - VOTY SALVAMENTOS Y USADOS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: white;
+            color: #000000;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header con logo y menú hamburguesa */
+        header {
+            background-color: white;
+            padding: 15px 0;
+            border-bottom: 3px solid #333;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo-left {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000000;
+            letter-spacing: 1.5px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        .logo-left::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #666;
+        }
+        
+        /* Menú hamburguesa */
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 24px;
+            cursor: pointer;
+            z-index: 1002;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+        
+        /* Menú desplegable lateral derecho */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 280px;
+            height: 100vh;
+            background-color: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+            padding-top: 0;
+        }
+        
+        .side-menu.active {
+            right: 0;
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            background-color: #f8f8f8;
+        }
+        
+        .menu-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        /* Botón de cierre dentro del menú */
+        .close-menu {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background: none;
+            border: none;
+            position: relative;
+        }
+        
+        .close-menu span {
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background-color: #333;
+            border-radius: 1px;
+        }
+        
+        .close-menu span:first-child {
+            transform: rotate(45deg);
+        }
+        
+        .close-menu span:last-child {
+            transform: rotate(-45deg);
+        }
+        
+        .close-menu:hover span {
+            background-color: #000;
+        }
+        
+        .menu-items {
+            padding: 15px 0;
+        }
+        
+        .menu-item {
+            display: block;
+            padding: 15px 25px;
+            color: #333;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            background-color: #f5f5f5;
+            color: #000;
+            border-left: 4px solid #666;
+        }
+        
+        .menu-item:active {
+            background-color: #eee;
+        }
+        
+        /* Sección del Hyundai Tucson */
+        .vehicle-detail-section {
+            padding: 40px 0;
+        }
+        
+        .vehicle-title-main {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #000;
+            text-align: center;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .vehicle-subtitle {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #28a745;
+            text-align: center;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .vehicle-price-main {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .vehicle-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .vehicle-image-container {
+            width: 100%;
+            height: 450px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .vehicle-main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #f5f5f5;
+        }
+        
+        .vehicle-info-container {
+            padding: 20px;
+        }
+        
+        .vehicle-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .good-news {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            color: #155724;
+        }
+        
+        .good-news h4 {
+            color: #155724;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .good-news ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .good-news li {
+            margin-bottom: 8px;
+        }
+        
+        .vehicle-features {
+            margin-top: 30px;
+        }
+        
+        .features-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #000;
+        }
+        
+        .features-list {
+            list-style-type: none;
+        }
+        
+        .features-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            color: #333;
+        }
+        
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .highlight-feature {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .condition-highlight {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        /* Sección de 3 divs con imágenes y texto */
+        .gallery-details {
+            margin: 50px 0;
+        }
+        
+        .gallery-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #000;
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+        
+        .detail-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            gap: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .detail-container:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .detail-image {
+            flex: 1;
+            min-width: 300px;
+            height: 300px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .detail-text {
+            flex: 2;
+            padding: 10px;
+        }
+        
+        .detail-text h3 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #000;
+        }
+        
+        .detail-text p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Sección única de contacto */
+        .contact-section {
+            background-color: #666;
+            padding: 30px 0;
+            margin-top: auto;
+            color: #ffffff;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+        
+        .contact-container {
+            text-align: center;
+            padding: 0 20px;
+            max-width: none;
+        }
+        
+        .business-name {
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ffffff;
+            letter-spacing: 0.8px;
+        }
+        
+        .contact-title {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        
+        .contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+        
+        .contact-person {
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        
+        .phone-number {
+            font-size: 1rem;
+            color: #ffffff;
+            margin-top: 2px;
+        }
+        
+        .address {
+            font-size: 0.95rem;
+            color: #ffffff;
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+        
+        .schedule {
+            font-size: 0.9rem;
+            color: #ffffff;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        .rights {
+            font-size: 0.95rem;
+            color: #ffffff;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            font-weight: normal;
+            font-style: normal;
+            letter-spacing: 0.3px;
+            line-height: 1.4;
+        }
+        
+        .rights-name {
+            color: #ffffff;
+            font-weight: normal;
+            font-size: 0.95rem;
+        }
+        
+        .copyright {
+            font-size: 0.7rem;
+            color: #ddd;
+            margin-top: 3px;
+        }
+        
+        /* Botones flotantes de WhatsApp */
+        .whatsapp-buttons {
+            position: fixed;
+            right: 20px;
+            bottom: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+        }
+        
+        .whatsapp-btn {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-5px);
+        }
+        
+        .whatsapp-text {
+            background-color: #25D366;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover .whatsapp-icon {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        
+        .whatsapp-icon img {
+            width: 35px;
+            height: 35px;
+        }
+        
+        /* Botón de volver al inicio */
+        .back-home {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .back-home:hover {
+            background-color: #000;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .vehicle-detail-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .vehicle-image-container {
+                height: 400px;
+            }
+            
+            .detail-container {
+                flex-direction: column;
+            }
+            
+            .detail-container:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            .detail-image {
+                min-width: 100%;
+                height: 280px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .vehicle-title-main {
+                font-size: 1.8rem;
+            }
+            
+            .vehicle-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .vehicle-price-main {
+                font-size: 1.5rem;
+            }
+            
+            .vehicle-image-container {
+                height: 350px;
+            }
+            
+            .gallery-title {
+                font-size: 1.5rem;
+            }
+            
+            .detail-image {
+                height: 250px;
+            }
+            
+            .detail-text h3 {
+                font-size: 1.2rem;
+            }
+            
+            .detail-text p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .vehicle-title-main {
+                font-size: 1.5rem;
+            }
+            
+            .vehicle-subtitle {
+                font-size: 1rem;
+            }
+            
+            .vehicle-price-main {
+                font-size: 1.3rem;
+            }
+            
+            .vehicle-image-container {
+                height: 280px;
+            }
+            
+            .detail-image {
+                height: 220px;
+                min-width: 100%;
+            }
+            
+            .gallery-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Overlay para cerrar menú -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    
+    <!-- Menú desplegable lateral derecho -->
+    <div class="side-menu" id="sideMenu">
+        <div class="menu-header">
+            <div class="menu-title">NAVEGACIÓN</div>
+            <button class="close-menu" id="closeMenu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="menu-items">
+            <a href="index.html" class="menu-item">INICIO</a>
+            <a href="jeepeta.html" class="menu-item">JEEPETA</a>
+            <a href="camioneta.html" class="menu-item">CAMIONETAS</a>
+            <a href="compactos.html" class="menu-item">AUTOS COMPACTOS</a>
+            <a href="sedan.html" class="menu-item">SEDAN</a>
+        </div>
+    </div>
+    
+    <header>
+        <div class="header-content">
+            <div class="logo-left">VOTY SALVAMENTOS Y USADOS</div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Detalle del Hyundai Tucson -->
+    <div class="container">
+        <div class="vehicle-detail-section">
+            <h1 class="vehicle-title-main">HYUNDAI TUCSON 2016</h1>
+            <div class="vehicle-subtitle">CONDICIÓN NITIDA - IMPECABLE - LISTA PARA USAR</div>
+            <div class="vehicle-price-main">RD$ 895,000</div>
+            
+            <div class="vehicle-detail-grid">
+                <div class="vehicle-image-container">
+                    <img src="hyundai16tucson/imagen1.png" alt="Hyundai Tucson 2016 en excelente estado" class="vehicle-main-image">
+                </div>
+                
+                <div class="vehicle-info-container">
+                    <div class="vehicle-description">
+                        Esta <span class="condition-highlight">Hyundai Tucson 2016 se encuentra en condición NITIDA E IMPECABLE</span>, lista para usar inmediatamente. El vehículo ha sido mantenido meticulosamente y presenta <span class="condition-highlight">excelente estado en todos los aspectos: mecánico, eléctrico, carrocería e interior</span>. Es un SUV versátil y confiable con diseño moderno, equipamiento completo y el renombre de calidad que caracteriza a Hyundai. Una oportunidad excepcional para adquirir un vehículo en condiciones de nuevo a excelente precio.
+                    </div>
+                    
+                    <div class="good-news">
+                        <h4>✅ ESTADO PERFECTO EN TODOS LOS ASPECTOS:</h4>
+                        <ul>
+                            <li>• <strong>MOTOR 2.0L O 2.4L EN ÓPTIMAS CONDICIONES</strong> - Funcionamiento perfecto</li>
+                            <li>• <strong>TRANSMISIÓN AUTOMÁTICA SUAVE</strong> - Cambios precisos y sin ruidos</li>
+                            <li>• <strong>CARROCERÍA IMPECABLE</strong> - Sin abolladuras, rayones ni óxido</li>
+                            <li>• <strong>INTERIOR COMO NUEVO</strong> - Asientos, tablero y consola en perfecto estado</li>
+                            <li>• <strong>AIRE ACONDICIONADO FRÍO INSTANTÁNEO</strong> - Sistema climático completo</li>
+                            <li>• <strong>SISTEMA DE AUDIO PREMIUM</strong> - Con Bluetooth, USB y pantalla táctil</li>
+                            <li>• <strong>LLANTAS ORIGINALES CON NEUMÁTICOS EN BUEN ESTADO</strong></li>
+                            <li>• <strong>DOCUMENTACIÓN AL DÍA</strong> - Lista para transferencia inmediata</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="vehicle-features">
+                        <h3 class="features-title">EQUIPAMIENTO COMPLETO - HYUNDAI TUCSON 2016</h3>
+                        <ul class="features-list">
+                            <li>• <span class="highlight-feature">Motor 2.0L o 2.4L 4 cilindros</span> - Potente y eficiente</li>
+                            <li>• Transmisión automática de 6 velocidades</li>
+                            <li>• Tracción delantera (FWD) o tracción en las 4 ruedas (AWD disponible)</li>
+                            <li>• Sistema de infoentretenimiento con pantalla táctil de 5" o 8"</li>
+                            <li>• Aire acondicionado automático de doble zona</li>
+                            <li>• Asientos de tela premium o piel (según equipamiento)</li>
+                            <li>• Sistema de audio premium con 6-8 parlantes</li>
+                            <li>• Llantas de aleación de 17" o 18"</li>
+                            <li>• Control de crucero</li>
+                            <li>• Sistema de navegación GPS (en versiones alta gama)</li>
+                            <li>• Cámara de reversa</li>
+                            <li>• Sistema keyless (entrada sin llave)</li>
+                            <li>• Faros de niebla</li>
+                            <li>• Control de estabilidad y tracción</li>
+                            <li>• Sistema de monitoreo de presión de neumáticos</li>
+                            <li>• Espejos laterales eléctricos, plegables y con desempañador</li>
+                            <li>• Vidrios eléctricos en las 4 puertas con función automática</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="good-news">
+                        <h4>📋 MANTENIMIENTO Y SERVICIOS RECIENTES:</h4>
+                        <ul>
+                            <li>• Cambio de aceite y filtros reciente</li>
+                            <li>• Frenos revisados y en perfecto estado</li>
+                            <li>• Suspensión en óptimas condiciones</li>
+                            <li>• Sistema eléctrico completamente funcional</li>
+                            <li>• Neumáticos con buena profundidad de dibujo</li>
+                            <li>• Batería en buen estado</li>
+                            <li>• Sistema de escape sin fugas ni ruidos</li>
+                            <li>• Líquidos (refrigerante, dirección, frenos) al nivel correcto</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección de 3 divs con imágenes y texto -->
+            <div class="gallery-details">
+                <h2 class="gallery-title">DETALLES DEL VEHÍCULO - EXCELENTE ESTADO</h2>
+                
+                <!-- Div 1 - Imagen 1 -->
+                <div class="detail-container">
+                    <div class="detail-image">
+                        <img src="hyundai16tucson/imagen1.png" alt="Hyundai Tucson 2016 vista frontal">
+                    </div>
+                    <div class="detail-text">
+                        <h3>Vista Frontal - Diseño Moderno y Atractivo</h3>
+                        <p>La <span class="condition-highlight">Hyundai Tucson 2016 presenta un diseño frontal moderno y aerodinámico</span> característico de la marca. La carrocería está <span class="condition-highlight">completamente intacta, sin abolladuras, rayones importantes ni signos de óxido</span>. La pintura original mantiene su brillo y uniformidad. Los faros delanteros (halógenos o LED según equipamiento) están en perfecto estado. El <span class="condition-highlight">vehículo muestra un mantenimiento impecable</span> que evidencia el cuidado recibido por sus dueños anteriores.</p>
+                    </div>
+                </div>
+                
+                <!-- Div 2 - Imagen 2 -->
+                <div class="detail-container">
+                    <div class="detail-image">
+                        <img src="hyundai16tucson/imagen2.png" alt="Interior impecable del Hyundai Tucson">
+                    </div>
+                    <div class="detail-text">
+                        <h3>Interior Impecable - Confort y Tecnología</h3>
+                        <p>El <span class="condition-highlight">interior se encuentra en estado IMPECABLE, conservado como nuevo</span>. Los asientos (tela premium o piel según la versión) no presentan desgastes, manchas, roturas ni olores desagradables. El <span class="condition-highlight">tablero de instrumentos está completo, sin rayones y con todos los controles funcionando</span>. La pantalla táctil del sistema de infoentretenimiento opera perfectamente con Bluetooth, USB y demás funciones. Todos los controles de climatización, ventanas, espejos y demás accesorios funcionan correctamente.</p>
+                    </div>
+                </div>
+                
+                <!-- Div 3 - Imagen 3 -->
+                <div class="detail-container">
+                    <div class="detail-image">
+                        <img src="hyundai16tucson/imagen3.png" alt="Llantas y carrocería en perfecto estado">
+                    </div>
+                    <div class="detail-text">
+                        <h3>Llantas y Carrocería - Estado General Excelente</h3>
+                        <p>Las <span class="condition-highlight">llantas de aleación originales están en excelente estado</span>, sin rayones importantes ni daños. Los neumáticos tienen buena profundidad de dibujo y están balanceados correctamente. La <span class="condition-highlight">carrocería en general se mantiene recta y uniforme</span>, sin evidencia de reparaciones previas o golpes. Las puertas abren y cierran perfectamente, los vidrios suben y bajan sin ruidos, y todos los sellos están intactos. Este <span class="condition-highlight">Hyundai Tucson 2016 está listo para ofrecer años de servicio confiable</span> a su nuevo dueño.</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="index.html" class="back-home">← VOLVER AL INICIO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sección única de contacto -->
+    <div class="contact-section">
+        <div class="contact-container">
+            <div class="business-name">VOTY SALVAMENTOS Y USADOS</div>
+            
+            <div class="contact-title">CONTACTO</div>
+            
+            <div class="contacts">
+                <div class="contact-person">
+                    CHIKI
+                    <div class="phone-number">(829) 539-4647</div>
+                </div>
+                
+                <div class="contact-person">
+                    VICTOR DURAN
+                    <div class="phone-number">829-605-1025</div>
+                </div>
+            </div>
+            
+            <div class="address">Carretera Mella Kilómetro 8 1/2, 8495 Cansino</div>
+            
+            <div class="schedule">
+                Lunes a Viernes: 7:00 AM - 6:00 PM<br>
+                Sábados y Domingos: 1:00 PM - 6:00 PM
+            </div>
+            
+            <div class="rights">
+                <span class="rights-name">VOTY SALVAMENTOS Y USADOS</span><br>
+                <span class="copyright">© 2026 - TODOS LOS DERECHOS RESERVADOS</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Botones flotantes de WhatsApp -->
+    <div class="whatsapp-buttons">
+        <!-- Botón 1: Victor Duran -->
+        <a href="https://wa.me/18296051025?text=Estoy%20interesado%20en%20la%20Hyundai%20Tucson%202016%20en%20condición%20nitida!" 
+           target="_blank" 
+           class="whatsapp-btn"
+           title="Contactar a Victor Duran por WhatsApp">
+            <div class="whatsapp-text">VICTOR DURAN<br>18296051025</div>
+            <div class="whatsapp-icon">
+                <img src="logos/whatsapp.png" alt="WhatsApp">
+            </div>
+        </a>
+        
+        <!-- Botón 2: Chiki -->
+        <a href="https://wa.me/18295394647?text=Estoy%20interesado%20en%20la%20Hyundai%20Tucson%202016%20en%20condición%20nitida!" 
+           target="_blank" 
+           class="whatsapp-btn"
+           title="Contactar a Chiki por WhatsApp">
+            <div class="whatsapp-text">CHIKI<br>8295394647</div>
+            <div class="whatsapp-icon">
+                <img src="logos/whatsapp.png" alt="WhatsApp">
+            </div>
+        </a>
+    </div>
+
+    <script>
+        // Funcionalidad del menú desplegable
+        const menuToggle = document.getElementById('menuToggle');
+        const sideMenu = document.getElementById('sideMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const closeMenu = document.getElementById('closeMenu');
+        
+        // Abrir menú
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.add('active');
+            sideMenu.classList.add('active');
+            menuOverlay.classList.add('active');
+        });
+        
+        // Cerrar menú con botón X
+        closeMenu.addEventListener('click', () => {
+            closeMenuFunc();
+        });
+        
+        // Cerrar menú al hacer clic en el overlay
+        menuOverlay.addEventListener('click', () => {
+            closeMenuFunc();
+        });
+        
+        // Cerrar menú al hacer clic en un enlace del menú
+        const menuItems = document.querySelectorAll('.menu-item');
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                closeMenuFunc();
+            });
+        });
+        
+        // Cerrar menú al presionar la tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMenuFunc();
+            }
+        });
+        
+        // Función para cerrar el menú
+        function closeMenuFunc() {
+            menuToggle.classList.remove('active');
+            sideMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+        }
+    </script>
+</body>
+</html>

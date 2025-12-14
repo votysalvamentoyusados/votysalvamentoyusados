@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEEPETA - VOTY SALVAMENTOS Y USADOS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: white;
+            color: #000000;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header con logo y menú hamburguesa */
+        header {
+            background-color: white;
+            padding: 15px 0;
+            border-bottom: 3px solid #333;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo-left {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000000;
+            letter-spacing: 1.5px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        .logo-left::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #666;
+        }
+        
+        /* Menú hamburguesa */
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 24px;
+            cursor: pointer;
+            z-index: 1002;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+        
+        /* Menú desplegable lateral derecho */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 280px;
+            height: 100vh;
+            background-color: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+            padding-top: 0;
+        }
+        
+        .side-menu.active {
+            right: 0;
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            background-color: #f8f8f8;
+        }
+        
+        .menu-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        /* Botón de cierre dentro del menú */
+        .close-menu {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background: none;
+            border: none;
+            position: relative;
+        }
+        
+        .close-menu span {
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background-color: #333;
+            border-radius: 1px;
+        }
+        
+        .close-menu span:first-child {
+            transform: rotate(45deg);
+        }
+        
+        .close-menu span:last-child {
+            transform: rotate(-45deg);
+        }
+        
+        .close-menu:hover span {
+            background-color: #000;
+        }
+        
+        .menu-items {
+            padding: 15px 0;
+        }
+        
+        .menu-item {
+            display: block;
+            padding: 15px 25px;
+            color: #333;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            background-color: #f5f5f5;
+            color: #000;
+            border-left: 4px solid #666;
+        }
+        
+        .menu-item:active {
+            background-color: #eee;
+        }
+        
+        /* GALERÍA DE JEEPETAS */
+        .gallery-section {
+            padding: 40px 0;
+        }
+        
+        .gallery-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #000;
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+        
+        .vehicles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .vehicle-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .vehicle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .vehicle-image-link {
+            display: block;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .vehicle-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .vehicle-card:hover .vehicle-image {
+            transform: scale(1.05);
+        }
+        
+        .vehicle-info {
+            padding: 20px;
+        }
+        
+        .vehicle-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        
+        .vehicle-price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #000;
+            line-height: 1.3;
+        }
+        
+        /* Sección única de contacto */
+        .contact-section {
+            background-color: #666;
+            padding: 30px 0;
+            margin-top: auto;
+            color: #ffffff;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+        
+        .contact-container {
+            text-align: center;
+            padding: 0 20px;
+            max-width: none;
+        }
+        
+        .business-name {
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ffffff;
+            letter-spacing: 0.8px;
+        }
+        
+        .contact-title {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        
+        .contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+        
+        .contact-person {
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        
+        .phone-number {
+            font-size: 1rem;
+            color: #ffffff;
+            margin-top: 2px;
+        }
+        
+        .address {
+            font-size: 0.95rem;
+            color: #ffffff;
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+        
+        .schedule {
+            font-size: 0.9rem;
+            color: #ffffff;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        .rights {
+            font-size: 0.95rem;
+            color: #ffffff;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            font-weight: normal;
+            font-style: normal;
+            letter-spacing: 0.3px;
+            line-height: 1.4;
+        }
+        
+        .rights-name {
+            color: #ffffff;
+            font-weight: normal;
+            font-size: 0.95rem;
+        }
+        
+        .copyright {
+            font-size: 0.7rem;
+            color: #ddd;
+            margin-top: 3px;
+        }
+        
+        /* ============ BOTONES FLOTANTES DE WHATSAPP ============ */
+        .whatsapp-buttons {
+            position: fixed;
+            right: 20px;
+            bottom: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+        }
+        
+        .whatsapp-btn {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-5px);
+        }
+        
+        .whatsapp-text {
+            background-color: #25D366;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover .whatsapp-icon {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        
+        .whatsapp-icon img {
+            width: 35px;
+            height: 35px;
+        }
+        
+        /* Botón de volver al inicio */
+        .back-home {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+        
+        .back-home:hover {
+            background-color: #000;
+        }
+        
+        /* ============ RESPONSIVE DESIGN ============ */
+        
+        /* Tablet (1024px a 769px) */
+        @media (max-width: 1024px) {
+            .vehicles-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .whatsapp-buttons {
+                right: 15px;
+                bottom: 90px;
+                gap: 12px;
+            }
+            
+            .whatsapp-text {
+                font-size: 0.75rem;
+                padding: 6px 10px;
+            }
+            
+            .whatsapp-icon {
+                width: 55px;
+                height: 55px;
+            }
+            
+            .whatsapp-icon img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+        
+        /* Tablet pequeña (768px a 481px) */
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 15px;
+            }
+            
+            .logo-left {
+                font-size: 1.3rem;
+                letter-spacing: 1px;
+            }
+            
+            .gallery-title {
+                font-size: 1.7rem;
+                margin-bottom: 30px;
+            }
+            
+            .vehicles-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .vehicle-title {
+                font-size: 1.2rem;
+            }
+            
+            .vehicle-price {
+                font-size: 1rem;
+            }
+            
+            .contact-section {
+                padding: 25px 0;
+            }
+            
+            .business-name {
+                font-size: 1.4rem;
+                margin-bottom: 15px;
+            }
+            
+            .contact-title {
+                font-size: 1rem;
+            }
+            
+            .contacts {
+                gap: 10px;
+            }
+            
+            .contact-person {
+                font-size: 0.9rem;
+            }
+            
+            .phone-number {
+                font-size: 0.95rem;
+            }
+            
+            .address, .schedule {
+                font-size: 0.85rem;
+            }
+            
+            .rights {
+                font-size: 0.85rem;
+            }
+            
+            .rights-name {
+                font-size: 0.85rem;
+            }
+            
+            .copyright {
+                font-size: 0.65rem;
+            }
+            
+            .whatsapp-buttons {
+                right: 10px;
+                bottom: 80px;
+                gap: 10px;
+            }
+            
+            .whatsapp-text {
+                font-size: 0.7rem;
+                padding: 5px 8px;
+            }
+            
+            .whatsapp-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .whatsapp-icon img {
+                width: 28px;
+                height: 28px;
+            }
+        }
+        
+        /* Móvil (480px a 321px) */
+        @media (max-width: 480px) {
+            .header-content {
+                padding: 0 10px;
+            }
+            
+            .logo-left {
+                font-size: 1.1rem;
+                letter-spacing: 0.8px;
+                padding-bottom: 3px;
+            }
+            
+            .logo-left::after {
+                height: 1px;
+                bottom: -2px;
+            }
+            
+            .gallery-title {
+                font-size: 1.5rem;
+                margin-bottom: 25px;
+            }
+            
+            .vehicles-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .vehicle-image-link {
+                height: 180px;
+            }
+            
+            .vehicle-title {
+                font-size: 1.1rem;
+            }
+            
+            .vehicle-price {
+                font-size: 0.95rem;
+            }
+            
+            .contact-section {
+                padding: 20px 0;
+            }
+            
+            .business-name {
+                font-size: 1.2rem;
+                margin-bottom: 12px;
+            }
+            
+            .contact-title {
+                font-size: 0.9rem;
+                margin-bottom: 12px;
+            }
+            
+            .contacts {
+                gap: 8px;
+                margin-bottom: 12px;
+            }
+            
+            .contact-person {
+                font-size: 0.85rem;
+            }
+            
+            .phone-number {
+                font-size: 0.9rem;
+            }
+            
+            .address {
+                font-size: 0.8rem;
+                line-height: 1.4;
+                margin-bottom: 4px;
+            }
+            
+            .schedule {
+                font-size: 0.75rem;
+                line-height: 1.5;
+                margin-bottom: 20px;
+            }
+            
+            .rights {
+                font-size: 0.8rem;
+                margin-top: 15px;
+                padding-top: 12px;
+                line-height: 1.3;
+            }
+            
+            .rights-name {
+                font-size: 0.8rem;
+            }
+            
+            .copyright {
+                font-size: 0.6rem;
+            }
+            
+            .container {
+                padding: 0 10px;
+            }
+            
+            .whatsapp-buttons {
+                right: 8px;
+                bottom: 70px;
+                gap: 8px;
+            }
+            
+            .whatsapp-text {
+                font-size: 0.65rem;
+                padding: 4px 6px;
+            }
+            
+            .whatsapp-icon {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .whatsapp-icon img {
+                width: 25px;
+                height: 25px;
+            }
+            
+            .side-menu {
+                width: 250px;
+            }
+        }
+        
+        /* Móvil pequeño (320px o menos) */
+        @media (max-width: 320px) {
+            .logo-left {
+                font-size: 1rem;
+                letter-spacing: 0.5px;
+            }
+            
+            .gallery-title {
+                font-size: 1.3rem;
+            }
+            
+            .vehicle-title {
+                font-size: 1rem;
+            }
+            
+            .vehicle-price {
+                font-size: 0.9rem;
+            }
+            
+            .business-name {
+                font-size: 1.1rem;
+            }
+            
+            .contact-title {
+                font-size: 0.85rem;
+            }
+            
+            .contact-person {
+                font-size: 0.8rem;
+            }
+            
+            .phone-number {
+                font-size: 0.85rem;
+            }
+            
+            .address, .schedule {
+                font-size: 0.75rem;
+            }
+            
+            .rights, .rights-name {
+                font-size: 0.75rem;
+            }
+            
+            .copyright {
+                font-size: 0.55rem;
+            }
+            
+            .whatsapp-text {
+                font-size: 0.6rem;
+                padding: 3px 5px;
+            }
+            
+            .whatsapp-icon {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .whatsapp-icon img {
+                width: 22px;
+                height: 22px;
+            }
+            
+            .side-menu {
+                width: 220px;
+            }
+        }
+        
+        /* Pantallas grandes (más de 1600px) */
+        @media (min-width: 1601px) {
+            .container {
+                max-width: 90%;
+            }
+            
+            .vehicles-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        /* Para pantallas muy pequeñas en altura */
+        @media (max-height: 500px) {
+            .whatsapp-buttons {
+                bottom: 50px;
+                gap: 5px;
+            }
+            
+            .vehicle-image-link {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Overlay para cerrar menú -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    
+    <!-- Menú desplegable lateral derecho -->
+    <div class="side-menu" id="sideMenu">
+        <div class="menu-header">
+            <div class="menu-title">CATEGORÍAS</div>
+            <button class="close-menu" id="closeMenu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="menu-items">
+            <a href="index.html" class="menu-item">INICIO</a>
+            <a href="jeepeta.html" class="menu-item">JEEPETA</a>
+            <a href="camioneta.html" class="menu-item">CAMIONETAS</a>
+            <a href="compactos.html" class="menu-item">AUTOS COMPACTOS</a>
+            <a href="sedan.html" class="menu-item">SEDAN</a>
+        </div>
+    </div>
+    
+    <header>
+        <div class="header-content">
+            <div class="logo-left">VOTY SALVAMENTOS Y USADOS</div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Galería de JEEPETAS -->
+    <div class="container">
+        <div class="gallery-section">
+            <h2 class="gallery-title">JEEPETAS DISPONIBLES</h2>
+            
+            <div class="vehicles-grid">
+                <!-- Jeepeta 1 - Jeep Cherokee Laredo (imagen2.jpg) -->
+                <div class="vehicle-card">
+                    <a href="2-jeep-laredo.html" class="vehicle-image-link">
+                        <img src="JEEPETA/imagen2.jpg" alt="Jeep Cherokee Laredo 2019" class="vehicle-image">
+                    </a>
+                    <div class="vehicle-info">
+                        <div class="vehicle-title">Jeep Cherokee Laredo 2019</div>
+                        <div class="vehicle-price">RD$ 1,275,000</div>
+                    </div>
+                </div>
+                
+                <!-- Jeepeta 2 - Kia Sorento 2016 V6 (imagen5.jpg) -->
+                <div class="vehicle-card">
+                    <a href="5-kia sorento 2016.html" class="vehicle-image-link">
+                        <img src="JEEPETA/imagen5.jpg" alt="Kia Sorento 2016 V6" class="vehicle-image">
+                    </a>
+                    <div class="vehicle-info">
+                        <div class="vehicle-title">Kia Sorento 2016 V6</div>
+                        <div class="vehicle-price">RD$ 775,000</div>
+                    </div>
+                </div>
+                
+                <!-- Jeepeta 3 - Hyundai Tucson 2016 (imagen9.png) -->
+                <div class="vehicle-card">
+                    <a href="9-TUCSON16 CHOCADA.html" class="vehicle-image-link">
+                        <img src="JEEPETA/imagen9.png" alt="Hyundai Tucson 2016" class="vehicle-image">
+                    </a>
+                    <div class="vehicle-info">
+                        <div class="vehicle-title">Hyundai Tucson 2016</div>
+                        <div class="vehicle-price">RD$ 395,000</div>
+                    </div>
+                </div>
+                
+                <!-- Jeepeta 4 - Renault Duster 2022 (imagen10.png) -->
+                <div class="vehicle-card">
+                    <a href="10-duster 2022.html" class="vehicle-image-link">
+                        <img src="JEEPETA/imagen10.png" alt="Renault Duster 2022" class="vehicle-image">
+                    </a>
+                    <div class="vehicle-info">
+                        <div class="vehicle-title">Renault Duster 2022</div>
+                        <div class="vehicle-price">RD$ 525,000</div>
+                    </div>
+                </div>
+                
+                <!-- Jeepeta 5 - Kia Sportage 2015 (imagen13.png) -->
+                <div class="vehicle-card">
+                    <a href="11-sportage2016chocada.html" class="vehicle-image-link">
+                        <img src="JEEPETA/imagen1.png" alt="Kia Sportage 2015" class="vehicle-image">
+                    </a>
+                    <div class="vehicle-info">
+                        <div class="vehicle-title">Kia Sportage 2015</div>
+                        <div class="vehicle-price">RD$ 395,000</div>
+                    </div>
+                </div>
+                
+                <!-- Jeepeta 6 - Suzuki Vitara 2017 (imagen14.png) -->
+                <div class="vehicle-card">
+                    <a href="13-vitara2017.html" class="vehicle-image-link">
+                        <img src="JEEPETA/imagen13.png" alt="Suzuki Vitara 2017" class="vehicle-image">
+                    </a>
+                    <div class="vehicle-info">
+                        <div class="vehicle-title">Suzuki Vitara 2017</div>
+                        <div class="vehicle-price">RD$ 525,000</div>
+                    </div>
+                </div>
+                
+                <!-- Jeepeta 7 - Mazda CX-5 2013 (imagen16.png) -->
+                <div class="vehicle-card">
+                    <a href="14-mazdacx5.html" class="vehicle-image-link">
+                        <img src="JEEPETA/imagen14.png" alt="Mazda CX-5 2013" class="vehicle-image">
+                    </a>
+                    <div class="vehicle-info">
+                        <div class="vehicle-title">Mazda CX-5 2013</div>
+                        <div class="vehicle-price">RD$ 495,000</div>
+                    </div>
+                </div>
+                
+                <!-- Jeepeta 8 - Hyundai Tucson 2015 (imagen17.png) -->
+                <div class="vehicle-card">
+                    <a href="16-hyundai tucson.html" class="vehicle-image-link">
+                        <img src="JEEPETA/imagen16.png" alt="Hyundai Tucson 2015" class="vehicle-image">
+                    </a>
+                    <div class="vehicle-info">
+                        <div class="vehicle-title">Hyundai Tucson 2015</div>
+                        <div class="vehicle-price">RD$ 675,000</div>
+                    </div>
+                </div>
+                
+                <!-- Jeepeta 9 - Suzuki XL7 2022 (imagen18.png) -->
+                <div class="vehicle-card">
+                    <a href="17-xl7.html" class="vehicle-image-link">
+                        <img src="JEEPETA/imagen17.png" alt="Suzuki XL7 2022" class="vehicle-image">
+                    </a>
+                    <div class="vehicle-info">
+                        <div class="vehicle-title">Suzuki XL7 2022</div>
+                        <div class="vehicle-price">RD$ 535,000</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Botón de volver al inicio -->
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="index.html" class="back-home">← VOLVER AL INICIO</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sección única de contacto -->
+    <div class="contact-section">
+        <div class="contact-container">
+            <div class="business-name">VOTY SALVAMENTOS Y USADOS</div>
+            
+            <div class="contact-title">CONTACTO</div>
+            
+            <div class="contacts">
+                <div class="contact-person">
+                    CHIKI
+                    <div class="phone-number">(829) 539-4647</div>
+                </div>
+                
+                <div class="contact-person">
+                    VICTOR DURAN
+                    <div class="phone-number">829-605-1025</div>
+                </div>
+            </div>
+            
+            <div class="address">Carretera Mella Kilómetro 8 1/2, 8495 Cansino</div>
+            
+            <div class="schedule">
+                Lunes a Viernes: 7:00 AM - 6:00 PM<br>
+                Sábados y Domingos: 1:00 PM - 6:00 PM
+            </div>
+            
+            <div class="rights">
+                <span class="rights-name">VOTY SALVAMENTOS Y USADOS</span><br>
+                <span class="copyright">© 2026 - TODOS LOS DERECHOS RESERVADOS</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Botones flotantes de WhatsApp -->
+    <div class="whatsapp-buttons">
+        <!-- Botón 1: Victor Duran -->
+        <a href="https://wa.me/18296051025?text=Estoy%20interesado%20en%20una%20JEEPETA!" 
+           target="_blank" 
+           class="whatsapp-btn"
+           title="Contactar a Victor Duran por WhatsApp">
+            <div class="whatsapp-text">VICTOR DURAN<br>18296051025</div>
+            <div class="whatsapp-icon">
+                <img src="logos/whatsapp.png" alt="WhatsApp">
+            </div>
+        </a>
+        
+        <!-- Botón 2: Chiki -->
+        <a href="https://wa.me/18295394647?text=Estoy%20interesado%20en%20una%20JEEPETA!" 
+           target="_blank" 
+           class="whatsapp-btn"
+           title="Contactar a Chiki por WhatsApp">
+            <div class="whatsapp-text">CHIKI<br>8295394647</div>
+            <div class="whatsapp-icon">
+                <img src="logos/whatsapp.png" alt="WhatsApp">
+            </div>
+        </a>
+    </div>
+
+    <script>
+        // Funcionalidad del menú desplegable
+        const menuToggle = document.getElementById('menuToggle');
+        const sideMenu = document.getElementById('sideMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const closeMenu = document.getElementById('closeMenu');
+        
+        // Abrir menú
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.add('active');
+            sideMenu.classList.add('active');
+            menuOverlay.classList.add('active');
+        });
+        
+        // Cerrar menú con botón X
+        closeMenu.addEventListener('click', () => {
+            closeMenuFunc();
+        });
+        
+        // Cerrar menú al hacer clic en el overlay
+        menuOverlay.addEventListener('click', () => {
+            closeMenuFunc();
+        });
+        
+        // Cerrar menú al hacer clic en un enlace del menú
+        const menuItems = document.querySelectorAll('.menu-item');
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                closeMenuFunc();
+            });
+        });
+        
+        // Cerrar menú al presionar la tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMenuFunc();
+            }
+        });
+        
+        // Función para cerrar el menú
+        function closeMenuFunc() {
+            menuToggle.classList.remove('active');
+            sideMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+        }
+    </script>
+</body>
+</html>

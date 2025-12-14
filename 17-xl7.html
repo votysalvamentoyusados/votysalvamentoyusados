@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suzuki XL7 2022 - VOTY SALVAMENTOS Y USADOS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: white;
+            color: #000000;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header con logo y menú hamburguesa */
+        header {
+            background-color: white;
+            padding: 15px 0;
+            border-bottom: 3px solid #333;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo-left {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000000;
+            letter-spacing: 1.5px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        .logo-left::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #666;
+        }
+        
+        /* Menú hamburguesa */
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 24px;
+            cursor: pointer;
+            z-index: 1002;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+        
+        /* Menú desplegable lateral derecho */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 280px;
+            height: 100vh;
+            background-color: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+            padding-top: 0;
+        }
+        
+        .side-menu.active {
+            right: 0;
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            background-color: #f8f8f8;
+        }
+        
+        .menu-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        /* Botón de cierre dentro del menú */
+        .close-menu {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background: none;
+            border: none;
+            position: relative;
+        }
+        
+        .close-menu span {
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background-color: #333;
+            border-radius: 1px;
+        }
+        
+        .close-menu span:first-child {
+            transform: rotate(45deg);
+        }
+        
+        .close-menu span:last-child {
+            transform: rotate(-45deg);
+        }
+        
+        .close-menu:hover span {
+            background-color: #000;
+        }
+        
+        .menu-items {
+            padding: 15px 0;
+        }
+        
+        .menu-item {
+            display: block;
+            padding: 15px 25px;
+            color: #333;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            background-color: #f5f5f5;
+            color: #000;
+            border-left: 4px solid #666;
+        }
+        
+        .menu-item:active {
+            background-color: #eee;
+        }
+        
+        /* Sección del Suzuki XL7 */
+        .vehicle-detail-section {
+            padding: 40px 0;
+        }
+        
+        .vehicle-title-main {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #000;
+            text-align: center;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .vehicle-subtitle {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ff0000;
+            text-align: center;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .vehicle-price-main {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .vehicle-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .vehicle-image-container {
+            width: 100%;
+            height: 450px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .vehicle-main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #f5f5f5;
+        }
+        
+        .vehicle-info-container {
+            padding: 20px;
+        }
+        
+        .vehicle-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .good-news {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            color: #155724;
+        }
+        
+        .good-news h4 {
+            color: #155724;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .good-news ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .good-news li {
+            margin-bottom: 8px;
+        }
+        
+        .vehicle-features {
+            margin-top: 30px;
+        }
+        
+        .features-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #000;
+        }
+        
+        .features-list {
+            list-style-type: none;
+        }
+        
+        .features-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            color: #333;
+        }
+        
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .highlight-feature {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .damage-warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            color: #856404;
+        }
+        
+        .damage-warning h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .damage-warning ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .damage-warning li {
+            margin-bottom: 5px;
+        }
+        
+        .condition-highlight {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .damage-highlight {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        /* Sección de 3 divs con imágenes y texto */
+        .gallery-details {
+            margin: 50px 0;
+        }
+        
+        .gallery-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #000;
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+        
+        .detail-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            gap: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .detail-container:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .detail-image {
+            flex: 1;
+            min-width: 300px;
+            height: 300px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .detail-text {
+            flex: 2;
+            padding: 10px;
+        }
+        
+        .detail-text h3 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #000;
+        }
+        
+        .detail-text p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Sección única de contacto */
+        .contact-section {
+            background-color: #666;
+            padding: 30px 0;
+            margin-top: auto;
+            color: #ffffff;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+        
+        .contact-container {
+            text-align: center;
+            padding: 0 20px;
+            max-width: none;
+        }
+        
+        .business-name {
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ffffff;
+            letter-spacing: 0.8px;
+        }
+        
+        .contact-title {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        
+        .contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+        
+        .contact-person {
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        
+        .phone-number {
+            font-size: 1rem;
+            color: #ffffff;
+            margin-top: 2px;
+        }
+        
+        .address {
+            font-size: 0.95rem;
+            color: #ffffff;
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+        
+        .schedule {
+            font-size: 0.9rem;
+            color: #ffffff;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        .rights {
+            font-size: 0.95rem;
+            color: #ffffff;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            font-weight: normal;
+            font-style: normal;
+            letter-spacing: 0.3px;
+            line-height: 1.4;
+        }
+        
+        .rights-name {
+            color: #ffffff;
+            font-weight: normal;
+            font-size: 0.95rem;
+        }
+        
+        .copyright {
+            font-size: 0.7rem;
+            color: #ddd;
+            margin-top: 3px;
+        }
+        
+        /* Botones flotantes de WhatsApp */
+        .whatsapp-buttons {
+            position: fixed;
+            right: 20px;
+            bottom: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+        }
+        
+        .whatsapp-btn {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-5px);
+        }
+        
+        .whatsapp-text {
+            background-color: #25D366;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover .whatsapp-icon {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        
+        .whatsapp-icon img {
+            width: 35px;
+            height: 35px;
+        }
+        
+        /* Botón de volver al inicio */
+        .back-home {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .back-home:hover {
+            background-color: #000;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .vehicle-detail-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .vehicle-image-container {
+                height: 400px;
+            }
+            
+            .detail-container {
+                flex-direction: column;
+            }
+            
+            .detail-container:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            .detail-image {
+                min-width: 100%;
+                height: 280px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .vehicle-title-main {
+                font-size: 1.8rem;
+            }
+            
+            .vehicle-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .vehicle-price-main {
+                font-size: 1.5rem;
+            }
+            
+            .vehicle-image-container {
+                height: 350px;
+            }
+            
+            .gallery-title {
+                font-size: 1.5rem;
+            }
+            
+            .detail-image {
+                height: 250px;
+            }
+            
+            .detail-text h3 {
+                font-size: 1.2rem;
+            }
+            
+            .detail-text p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .vehicle-title-main {
+                font-size: 1.5rem;
+            }
+            
+            .vehicle-subtitle {
+                font-size: 1rem;
+            }
+            
+            .vehicle-price-main {
+                font-size: 1.3rem;
+            }
+            
+            .vehicle-image-container {
+                height: 280px;
+            }
+            
+            .detail-image {
+                height: 220px;
+                min-width: 100%;
+            }
+            
+            .gallery-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Overlay para cerrar menú -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    
+    <!-- Menú desplegable lateral derecho -->
+    <div class="side-menu" id="sideMenu">
+        <div class="menu-header">
+            <div class="menu-title">NAVEGACIÓN</div>
+            <button class="close-menu" id="closeMenu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="menu-items">
+            <a href="index.html" class="menu-item">INICIO</a>
+            <a href="jeepeta.html" class="menu-item">JEEPETA</a>
+            <a href="camioneta.html" class="menu-item">CAMIONETAS</a>
+            <a href="compactos.html" class="menu-item">AUTOS COMPACTOS</a>
+            <a href="sedan.html" class="menu-item">SEDAN</a>
+        </div>
+    </div>
+    
+    <header>
+        <div class="header-content">
+            <div class="logo-left">VOTY SALVAMENTOS Y USADOS</div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Detalle del Suzuki XL7 -->
+    <div class="container">
+        <div class="vehicle-detail-section">
+            <h1 class="vehicle-title-main">SUZUKI XL7 2022</h1>
+            <div class="vehicle-subtitle">CHOQUE FRONTAL - LADOS Y PARTE TRASERA NITIDOS</div>
+            <div class="vehicle-price-main">RD$ 750,000</div>
+            
+            <div class="vehicle-detail-grid">
+                <div class="vehicle-image-container">
+                    <img src="suzukixl7-22/imagen1.png" alt="Suzuki XL7 2022 choque frontal" class="vehicle-main-image">
+                </div>
+                
+                <div class="vehicle-info-container">
+                    <div class="vehicle-description">
+                        Esta <span class="condition-highlight">Suzuki XL7 2022 sufrió un choque frontal que dejó la parte delantera debaratada</span>. Sin embargo, lo más importante es que <span class="condition-highlight">el resto del vehículo está en excelente estado: los lados y la parte trasera están NITIDOS</span>. Los parabrisas están intactos y la carrocería lateral y posterior no presentan daños. Este SUV familiar de 7 plazas, casi nuevo, representa una <span class="condition-highlight">excelente oportunidad para reparación</span> dado que la mayor parte del vehículo está en perfectas condiciones.
+                    </div>
+                    
+                    <div class="good-news">
+                        <h4>✅ ASPECTOS POSITIVOS - PARTES EN EXCELENTE ESTADO:</h4>
+                        <ul>
+                            <li>• <strong>LADOS COMPLETAMENTE NITIDOS</strong> - Puertas laterales, espejos y paneles sin daños</li>
+                            <li>• <strong>PARTE TRASERA NITIDA</strong> - Bumper trasero, luces y portón en perfecto estado</li>
+                            <li>• <strong>PARABRISAS INTACTOS</strong> - Vidrios frontales y laterales sin roturas</li>
+                            <li>• <strong>INTERIOR POSIBLEMENTE CONSERVADO</strong> - Asientos para 7 personas posiblemente en buen estado</li>
+                            <li>• <strong>MOTOR POSIBLEMENTE FUNCIONAL</span> - Requiere evaluación pero puede estar en buen estado</li>
+                            <li>• <strong>SISTEMA ELÉCTRICO PARCIAL</strong> - Muchos componentes pueden estar operativos</li>
+                            <li>• <strong>LLANTAS RECUPERABLES</strong> - Posiblemente solo requieren alineación tras el impacto</li>
+                            <li>• <strong>VEHÍCULO CASI NUEVO</strong> - Modelo 2022 con poco tiempo de uso</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="vehicle-features">
+                        <h3 class="features-title">CARACTERÍSTICAS ORIGINALES - SUZUKI XL7 2022</h3>
+                        <ul class="features-list">
+                            <li>• <span class="highlight-feature">Motor 1.5L K15B 4 cilindros</span> - Tecnología de inyección directa</li>
+                            <li>• Transmisión automática de 4 velocidades o CVT (dependiendo del modelo)</li>
+                            <li>• Tracción delantera (FWD)</li>
+                            <li>• Capacidad para 7 pasajeros - Configuración familiar</li>
+                            <li>• Sistema de infoentretenimiento con pantalla táctil</li>
+                            <li>• Aire acondicionado para 3 zonas (conductor, pasajero, trasera)</li>
+                            <li>• Asientos de tela premium (posiblemente en buen estado)</li>
+                            <li>• Sistema de audio con 6 parlantes</li>
+                            <li>• Llantas de aleación de 16" o 17"</li>
+                            <li>• Control de crucero</li>
+                            <li>• Cámara de reversa</li>
+                            <li>• Sistema keyless (entrada sin llave)</li>
+                            <li>• Faros de niebla</li>
+                            <li>• Control de estabilidad ESP</li>
+                            <li>• Sistema de asistencia en pendientes (HHC)</li>
+                            <li>• 6 bolsas de aire (requiere evaluación tras impacto)</li>
+                            <li>• Vidrios eléctricos en las 4 puertas</li>
+                            <li>• Espejos eléctricos plegables</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="damage-warning">
+                        <h4>⚠️ DAÑOS IDENTIFICADOS - REPARACIONES NECESARIAS:</h4>
+                        <ul>
+                            <li>• <span class="damage-highlight">CHOQUE FRONTAL</span> - Parte delantera debaratada y dañada</li>
+                            <li>• <span class="damage-highlight">BUMPER DELANTERO DESTRUIDO</span> - Requiere reemplazo completo</li>
+                            <li>• <span class="damage-highlight">CAPÓ Y PARRILLA DAÑADOS</span> - Necesitan reparación o sustitución</li>
+                            <li>• <span class="damage-highlight">FAROS DELANTEROS AFECTADOS</span> - Muy probablemente requieren reemplazo</li>
+                            <li>• Sistema de enfriamiento requiere evaluación</li>
+                            <li>• Radiador posiblemente dañado</li>
+                            <li>• Estructura frontal necesita evaluación profesional</li>
+                            <li>• Sistema de dirección y suspensión delantera requiere revisión</li>
+                        </ul>
+                        <p><strong>Nota:</strong> Esta Suzuki XL7 2022 es un proyecto de reparación con excelente potencial. Al ser un vehículo casi nuevo (2022) y tener los lados y parte trasera en perfecto estado, las reparaciones se concentran solo en la parte frontal. Ideal para taller especializado o persona con conocimientos en reparación que busque un SUV familiar moderno a excelente precio.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección de 3 divs con imágenes y texto -->
+            <div class="gallery-details">
+                <h2 class="gallery-title">ESTADO ACTUAL - SUZUKI XL7 2022</h2>
+                
+                <!-- Div 1 - Imagen 1 -->
+                <div class="detail-container">
+                    <div class="detail-image">
+                        <img src="suzukixl7-22/imagen1.png" alt="Suzuki XL7 2022 choque frontal">
+                    </div>
+                    <div class="detail-text">
+                        <h3>Vista Frontal - Daños por Impacto</h3>
+                        <p>La imagen muestra el <span class="damage-highlight">choque frontal que dejó la parte delantera del Suzuki XL7 2022 debaratada</span>. Se observa el <span class="damage-highlight">bumper delantero destruido, el capó dañado y la parrilla afectada</span>. Los faros delanteros muy probablemente requieren reemplazo. A pesar de estos daños frontales, es crucial destacar que <span class="condition-highlight">este es un vehículo MUY RECIENTE (2022) y el resto del auto está en excelente estado</span>. El impacto parece estar localizado principalmente en la parte frontal.</p>
+                    </div>
+                </div>
+                
+                <!-- Div 2 - Imagen 2 -->
+                <div class="detail-container">
+                    <div class="detail-image">
+                        <img src="suzukixl7-22/imagen2.png" alt="Lados nitidos del Suzuki XL7">
+                    </div>
+                    <div class="detail-text">
+                        <h3>Lados Completamente Nitidos - Sin Daños</h3>
+                        <p>Esta vista confirma que <span class="condition-highlight">los lados del Suzuki XL7 2022 están COMPLETAMENTE NITIDOS y sin daños</span>. Las puertas laterales (incluyendo las puertas corredizas traseras características del XL7), los espejos laterales, los paneles de carrocería y las molduras están <span class="condition-highlight">en perfecto estado, sin abolladuras, rayones ni signos de impacto</span>. Los vidrios laterales están intactos. Esta condición <span class="condition-highlight">reduce significativamente el trabajo de reparación necesario</span> ya que más del 70% de la carrocería está preservada.</p>
+                    </div>
+                </div>
+                
+                <!-- Div 3 - Imagen 3 -->
+                <div class="detail-container">
+                    <div class="detail-image">
+                        <img src="suzukixl7-22/imagen3.png" alt="Parte trasera nitida del Suzuki XL7">
+                    </div>
+                    <div class="detail-text">
+                        <h3>Parte Trasera Nitida - Excelente Estado</h3>
+                        <p>La <span class="condition-highlight">parte trasera del Suzuki XL7 2022 está NITIDA y en perfecto estado</span>. El bumper trasero, las luces posteriores, el portón y la luneta trasera están <span class="condition-highlight">completamente intactos y sin daños</span>. Esto es especialmente valioso considerando que el XL7 es un SUV familiar de 7 plazas con un portón trasero grande y funcional. <span class="condition-highlight">Los parabrisas están intactos</span>, tanto el frontal como el trasero. Esta condición hace que este vehículo sea una <span class="condition-highlight">oportunidad excepcional para reparación</span> dado que solo la parte frontal requiere trabajo.</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="index.html" class="back-home">← VOLVER AL INICIO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sección única de contacto -->
+    <div class="contact-section">
+        <div class="contact-container">
+            <div class="business-name">VOTY SALVAMENTOS Y USADOS</div>
+            
+            <div class="contact-title">CONTACTO</div>
+            
+            <div class="contacts">
+                <div class="contact-person">
+                    CHIKI
+                    <div class="phone-number">(829) 539-4647</div>
+                </div>
+                
+                <div class="contact-person">
+                    VICTOR DURAN
+                    <div class="phone-number">829-605-1025</div>
+                </div>
+            </div>
+            
+            <div class="address">Carretera Mella Kilómetro 8 1/2, 8495 Cansino</div>
+            
+            <div class="schedule">
+                Lunes a Viernes: 7:00 AM - 6:00 PM<br>
+                Sábados y Domingos: 1:00 PM - 6:00 PM
+            </div>
+            
+            <div class="rights">
+                <span class="rights-name">VOTY SALVAMENTOS Y USADOS</span><br>
+                <span class="copyright">© 2026 - TODOS LOS DERECHOS RESERVADOS</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Botones flotantes de WhatsApp -->
+    <div class="whatsapp-buttons">
+        <!-- Botón 1: Victor Duran -->
+        <a href="https://wa.me/18296051025?text=Estoy%20interesado%20en%20el%20Suzuki%20XL7%202022%20con%20choque%20frontal!" 
+           target="_blank" 
+           class="whatsapp-btn"
+           title="Contactar a Victor Duran por WhatsApp">
+            <div class="whatsapp-text">VICTOR DURAN<br>18296051025</div>
+            <div class="whatsapp-icon">
+                <img src="logos/whatsapp.png" alt="WhatsApp">
+            </div>
+        </a>
+        
+        <!-- Botón 2: Chiki -->
+        <a href="https://wa.me/18295394647?text=Estoy%20interesado%20en%20el%20Suzuki%20XL7%202022%20con%20choque%20frontal!" 
+           target="_blank" 
+           class="whatsapp-btn"
+           title="Contactar a Chiki por WhatsApp">
+            <div class="whatsapp-text">CHIKI<br>8295394647</div>
+            <div class="whatsapp-icon">
+                <img src="logos/whatsapp.png" alt="WhatsApp">
+            </div>
+        </a>
+    </div>
+
+    <script>
+        // Funcionalidad del menú desplegable
+        const menuToggle = document.getElementById('menuToggle');
+        const sideMenu = document.getElementById('sideMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const closeMenu = document.getElementById('closeMenu');
+        
+        // Abrir menú
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.add('active');
+            sideMenu.classList.add('active');
+            menuOverlay.classList.add('active');
+        });
+        
+        // Cerrar menú con botón X
+        closeMenu.addEventListener('click', () => {
+            closeMenuFunc();
+        });
+        
+        // Cerrar menú al hacer clic en el overlay
+        menuOverlay.addEventListener('click', () => {
+            closeMenuFunc();
+        });
+        
+        // Cerrar menú al hacer clic en un enlace del menú
+        const menuItems = document.querySelectorAll('.menu-item');
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                closeMenuFunc();
+            });
+        });
+        
+        // Cerrar menú al presionar la tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMenuFunc();
+            }
+        });
+        
+        // Función para cerrar el menú
+        function closeMenuFunc() {
+            menuToggle.classList.remove('active');
+            sideMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+        }
+    </script>
+</body>
+</html>
