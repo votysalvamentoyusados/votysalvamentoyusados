@@ -668,6 +668,33 @@
                 font-size: 1.3rem;
             }
         }
+        .footer-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+/* Evitar borde blanco y que coincida con el footer */
+.footer-social a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    border: none;
+    outline: none;
+}
+
+.footer-social a:hover {
+    transform: scale(1.1);
+}
+
+.footer-instagram {
+    width: 55px;
+    height: 55px;
+    border: 2px solid #666; /* mismo color del footer */
+    border-radius: 20%; /* opcional, que quede redondo */
+    background-color: #666; /* relleno del footer para que no se vea línea blanca */
+    padding: 5px; /* espacio interno */
+}
     </style>
 </head>
 <body>
@@ -822,7 +849,11 @@
                 Lunes a Viernes: 7:00 AM - 6:00 PM<br>
                 Sábados y Domingos: 1:00 PM - 6:00 PM
             </div>
-            
+            <div class="footer-social">
+    <a href="https://www.instagram.com/salvamentosyusados/?__pwa=1" target="_blank" title="Instagram Salvamentos y Usados">
+        <img src="logos/instagram.png" alt="Instagram" class="footer-instagram">
+    </a>
+</div>
             <div class="rights">
                 <span class="rights-name">BOTY SALVAMENTOS Y USADOS</span><br>
                 <span class="copyright">© 2026 - TODOS LOS DERECHOS RESERVADOS</span>
