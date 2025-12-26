@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://botysalvamentoyusados.github.io/botysalvamentoyusados/sitemap.xml
+Sitemap: https://votysalvamentoyusados.github.io/votysalvamentoyusados/sitemap.xml
