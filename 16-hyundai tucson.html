@@ -45,6 +45,85 @@
             max-width: 1600px;
             margin: 0 auto;
             padding: 0 20px;
+            position: relative;
+        }
+        
+        /* Letrero VENDIDA */
+        .sold-banner {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            background-color: #ff0000;
+            color: white;
+            padding: 25px 40px;
+            border-radius: 10px;
+            transform: rotate(15deg);
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            z-index: 9999;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border: 5px solid white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: pulse 2s infinite alternate;
+        }
+        
+        .sold-banner::before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, #ff0000, #cc0000, #ff3333, #ff0000);
+            border-radius: 12px;
+            z-index: -1;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: rotate(15deg) scale(1);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            }
+            100% {
+                transform: rotate(15deg) scale(1.05);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            }
+        }
+        
+        /* Versión para móvil */
+        .sold-banner-mobile {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-5deg);
+            background-color: #ff0000;
+            color: white;
+            padding: 20px 30px;
+            border-radius: 8px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            z-index: 9999;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            border: 4px solid white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            display: none;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            animation: shake 0.5s ease-in-out infinite alternate;
+        }
+        
+        @keyframes shake {
+            0% {
+                transform: translateX(-50%) rotate(-5deg);
+            }
+            100% {
+                transform: translateX(-50%) rotate(-2deg);
+            }
         }
         
         /* Header con logo y menú hamburguesa */
@@ -271,6 +350,26 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        /* Sello VENDIDA sobre la imagen principal */
+        .sold-overlay {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(255, 0, 0, 0.85);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 3px solid white;
+            transform: rotate(5deg);
         }
         
         .vehicle-main-image {
@@ -373,6 +472,7 @@
             background-color: #f9f9f9;
             border-radius: 8px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            position: relative;
         }
         
         .detail-container:nth-child(even) {
@@ -390,6 +490,26 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+        }
+        
+        /* Sello VENDIDA pequeño en cada imagen de detalle */
+        .sold-small {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: rgba(255, 0, 0, 0.9);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            z-index: 10;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+            border: 2px solid white;
+            transform: rotate(3deg);
         }
         
         .detail-image img {
@@ -583,6 +703,19 @@
             background-color: #000;
         }
         
+        /* Añadir indicación de VENDIDA en el precio */
+        .sold-price {
+            color: #ff0000 !important;
+            text-decoration: line-through;
+        }
+        
+        .sold-notice {
+            color: #ff0000;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+        
         /* Responsive */
         @media (max-width: 1024px) {
             .vehicle-detail-grid {
@@ -609,6 +742,14 @@
         }
         
         @media (max-width: 768px) {
+            .sold-banner {
+                display: none;
+            }
+            
+            .sold-banner-mobile {
+                display: block;
+            }
+            
             .vehicle-title-main {
                 font-size: 1.8rem;
             }
@@ -698,6 +839,10 @@
     </style>
 </head>
 <body>
+    <!-- Letrero VENDIDA flotante -->
+    
+    <div class="sold-banner-mobile">¡VENDIDA!</div>
+    
     <!-- Overlay para cerrar menú -->
     <div class="menu-overlay" id="menuOverlay"></div>
     
@@ -735,16 +880,18 @@
         <div class="vehicle-detail-section">
             <h1 class="vehicle-title-main">HYUNDAI TUCSON 2016</h1>
             <div class="vehicle-subtitle">CONDICIÓN NITIDA - IMPECABLE - LISTA PARA USAR</div>
-            <div class="vehicle-price-main">RD$ 675,000</div>
+            <div class="vehicle-price-main sold-price">RD$ 675,000</div>
+            <div class="sold-notice" style="text-align: center;">¡VEHÍCULO VENDIDO!</div>
             
             <div class="vehicle-detail-grid">
                 <div class="vehicle-image-container">
+                    <div class="sold-overlay">VENDIDA</div>
                     <img src="hyundai16tucson/imagen1.png" alt="Hyundai Tucson 2016 en excelente estado" class="vehicle-main-image">
                 </div>
                 
                 <div class="vehicle-info-container">
                     <div class="vehicle-description">
-                        Esta <span class="condition-highlight">Hyundai Tucson 2016 se encuentra en condición NITIDA E IMPECABLE</span>, lista para usar inmediatamente. El vehículo ha sido mantenido meticulosamente y presenta <span class="condition-highlight">excelente estado en todos los aspectos: mecánico, eléctrico, carrocería e interior</span>. Es un SUV versátil y confiable con diseño moderno, equipamiento completo y el renombre de calidad que caracteriza a Hyundai. Una oportunidad excepcional para adquirir un vehículo en condiciones de nuevo a excelente precio.
+                        <span style="color: #ff0000; font-weight: bold;">¡ATENCIÓN! Este vehículo ha sido VENDIDO.</span> Esta <span class="condition-highlight">Hyundai Tucson 2016 se encontraba en condición NITIDA E IMPECABLE</span>, lista para usar inmediatamente. El vehículo fue mantenido meticulosamente y presentaba <span class="condition-highlight">excelente estado en todos los aspectos: mecánico, eléctrico, carrocería e interior</span>. Era un SUV versátil y confiable con diseño moderno, equipamiento completo y el renombre de calidad que caracteriza a Hyundai.
                     </div>
                     
                     <div class="good-news">
@@ -759,6 +906,9 @@
                             <li>• <strong>LLANTAS ORIGINALES CON NEUMÁTICOS EN BUEN ESTADO</strong></li>
                             <li>• <strong>DOCUMENTACIÓN AL DÍA</strong> - Lista para transferencia inmediata</li>
                         </ul>
+                        <p style="margin-top: 15px; font-weight: bold; color: #155724; font-style: italic;">
+                            Este vehículo ya fue vendido. Consulte nuestro inventario actual para opciones similares disponibles.
+                        </p>
                     </div>
                     
                     <div class="vehicle-features">
@@ -807,33 +957,36 @@
                 <!-- Div 1 - Imagen 1 -->
                 <div class="detail-container">
                     <div class="detail-image">
+                        <div class="sold-small">VENDIDA</div>
                         <img src="hyundai16tucson/imagen1.png" alt="Hyundai Tucson 2016 vista frontal">
                     </div>
                     <div class="detail-text">
                         <h3>Vista Frontal - Diseño Moderno y Atractivo</h3>
-                        <p>La <span class="condition-highlight">Hyundai Tucson 2016 presenta un diseño frontal moderno y aerodinámico</span> característico de la marca. La carrocería está <span class="condition-highlight">completamente intacta, sin abolladuras, rayones importantes ni signos de óxido</span>. La pintura original mantiene su brillo y uniformidad. Los faros delanteros (halógenos o LED según equipamiento) están en perfecto estado. El <span class="condition-highlight">vehículo muestra un mantenimiento impecable</span> que evidencia el cuidado recibido por sus dueños anteriores.</p>
+                        <p><span style="color: #ff0000; font-weight: bold;">VEHÍCULO VENDIDO.</span> La <span class="condition-highlight">Hyundai Tucson 2016 presentaba un diseño frontal moderno y aerodinámico</span> característico de la marca. La carrocería estaba <span class="condition-highlight">completamente intacta, sin abolladuras, rayones importantes ni signos de óxido</span>. La pintura original mantenía su brillo y uniformidad. Los faros delanteros (halógenos o LED según equipamiento) estaban en perfecto estado. El <span class="condition-highlight">vehículo mostraba un mantenimiento impecable</span> que evidenciaba el cuidado recibido por sus dueños anteriores.</p>
                     </div>
                 </div>
                 
                 <!-- Div 2 - Imagen 2 -->
                 <div class="detail-container">
                     <div class="detail-image">
+                        <div class="sold-small">VENDIDA</div>
                         <img src="hyundai16tucson/imagen2.png" alt="Interior impecable del Hyundai Tucson">
                     </div>
                     <div class="detail-text">
                         <h3>Interior Impecable - Confort y Tecnología</h3>
-                        <p>El <span class="condition-highlight">interior se encuentra en estado IMPECABLE, conservado como nuevo</span>. Los asientos (tela premium o piel según la versión) no presentan desgastes, manchas, roturas ni olores desagradables. El <span class="condition-highlight">tablero de instrumentos está completo, sin rayones y con todos los controles funcionando</span>. La pantalla táctil del sistema de infoentretenimiento opera perfectamente con Bluetooth, USB y demás funciones. Todos los controles de climatización, ventanas, espejos y demás accesorios funcionan correctamente.</p>
+                        <p><span style="color: #ff0000; font-weight: bold;">VEHÍCULO VENDIDO.</span> El <span class="condition-highlight">interior se encontraba en estado IMPECABLE, conservado como nuevo</span>. Los asientos (tela premium o piel según la versión) no presentaban desgastes, manchas, roturas ni olores desagradables. El <span class="condition-highlight">tablero de instrumentos estaba completo, sin rayones y con todos los controles funcionando</span>. La pantalla táctil del sistema de infoentretenimiento operaba perfectamente con Bluetooth, USB y demás funciones. Todos los controles de climatización, ventanas, espejos y demás accesorios funcionaban correctamente.</p>
                     </div>
                 </div>
                 
                 <!-- Div 3 - Imagen 3 -->
                 <div class="detail-container">
                     <div class="detail-image">
+                        <div class="sold-small">VENDIDA</div>
                         <img src="hyundai16tucson/imagen3.png" alt="Llantas y carrocería en perfecto estado">
                     </div>
                     <div class="detail-text">
                         <h3>Llantas y Carrocería - Estado General Excelente</h3>
-                        <p>Las <span class="condition-highlight">llantas de aleación originales están en excelente estado</span>, sin rayones importantes ni daños. Los neumáticos tienen buena profundidad de dibujo y están balanceados correctamente. La <span class="condition-highlight">carrocería en general se mantiene recta y uniforme</span>, sin evidencia de reparaciones previas o golpes. Las puertas abren y cierran perfectamente, los vidrios suben y bajan sin ruidos, y todos los sellos están intactos. Este <span class="condition-highlight">Hyundai Tucson 2016 está listo para ofrecer años de servicio confiable</span> a su nuevo dueño.</p>
+                        <p><span style="color: #ff0000; font-weight: bold;">VEHÍCULO VENDIDO.</span> Las <span class="condition-highlight">llantas de aleación originales estaban en excelente estado</span>, sin rayones importantes ni daños. Los neumáticos tenían buena profundidad de dibujo y estaban balanceados correctamente. La <span class="condition-highlight">carrocería en general se mantenía recta y uniforme</span>, sin evidencia de reparaciones previas o golpes. Las puertas abrían y cerraban perfectamente, los vidrios subían y bajaban sin ruidos, y todos los sellos estaban intactos. Esta <span class="condition-highlight">Hyundai Tucson 2016 estaba lista para ofrecer años de servicio confiable</span> a su nuevo dueño.</p>
                     </div>
                 </div>
                 
@@ -884,7 +1037,7 @@
     <!-- Botones flotantes de WhatsApp -->
     <div class="whatsapp-buttons">
         <!-- Botón 1: Victor Duran -->
-        <a href="https://wa.me/18296051025?text=Estoy%20interesado%20en%20la%20Hyundai%20Tucson%202016%20en%20condición%20nitida!" 
+        <a href="https://wa.me/18296051025?text=Vi%20la%20Hyundai%20Tucson%202016%20marcada%20como%20VENDIDA.%20¿Tienen%20otras%20opciones%20similares%20disponibles?" 
            target="_blank" 
            class="whatsapp-btn"
            title="Contactar a Victor Duran por WhatsApp">
@@ -895,7 +1048,7 @@
         </a>
         
         <!-- Botón 2: Chiki -->
-        <a href="https://wa.me/18295394647?text=Estoy%20interesado%20en%20la%20Hyundai%20Tucson%202016%20en%20condición%20nitida!" 
+        <a href="https://wa.me/18295394647?text=Vi%20la%20Hyundai%20Tucson%202016%20marcada%20como%20VENDIDA.%20¿Tienen%20otros%20vehículos%20similares%20disponibles?" 
            target="_blank" 
            class="whatsapp-btn"
            title="Contactar a Chiki por WhatsApp">
