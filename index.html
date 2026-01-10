@@ -392,7 +392,26 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+    /* Estilo para cartel VENDIDO - visible siempre */
+.vehicle-image-link {
+    position: relative;
+    display: block;
+}
+
+.sold-label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    z-index: 5;
+    opacity: 1;
+    visibility: visible;
+}
         .vehicle-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
@@ -1345,17 +1364,18 @@
                     </div>
                 </div>
                 
-                <!-- Vehículo 16 - Hyundai Tucson Nitida -->
-                <div class="vehicle-card">
-                    <a href="16-hyundai tucson.html" class="vehicle-image-link">
-                        <img src="IMAGENES FRONTALES CARRO INICIO/imagen16.png" alt="Hyundai Tucson Nitida" class="vehicle-image">
-                    </a>
-                    <div class="vehicle-info">
-                        <div class="vehicle-title">Hyundai Tucson Nitida</div>
-                        <div class="vehicle-price">RD$ 675,000</div>
-                    </div>
-                </div>
                 
+             <!-- Vehículo 16 - Hyundai Tucson Nitida -->
+<div class="vehicle-card">
+    <a href="16-hyundai tucson.html" class="vehicle-image-link">
+        <img src="IMAGENES FRONTALES CARRO INICIO/imagen16.png" alt="Hyundai Tucson Nitida" class="vehicle-image">
+        <div class="sold-label">VENDIDO</div>
+    </a>
+    <div class="vehicle-info">
+        <div class="vehicle-title">Hyundai Tucson Nitida</div>
+        <div class="vehicle-price">RD$ 675,000</div>
+    </div>
+</div>      
                 <!-- Vehículo 17 - Suzuki XL7 -->
                 <div class="vehicle-card">
                     <a href="17-xl7.html" class="vehicle-image-link">
