@@ -703,7 +703,37 @@
     align-items: center;
     margin-top: 15px;
 }
+/* Letrero VENDIDO para imágenes de detalle */
+.vehicle-image-container {
+    position: relative;
+}
 
+.sold-overlay {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: red;
+    color: white;
+    padding: 8px 15px;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 1rem;
+    z-index: 10;
+}
+
+/* Letrero VENDIDO en precio */
+.sold-price {
+    color: red !important;
+    text-decoration: line-through;
+}
+
+.sold-notice {
+    color: red;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 10px;
+}
 /* Evitar borde blanco y que coincida con el footer */
 .footer-social a {
     display: inline-block;
@@ -766,10 +796,10 @@
             <div class="vehicle-subtitle">IMPACTO LATERAL IZQUIERDO - PRENDE Y CORRE</div>
             <div class="vehicle-price-main">RD$ 525,000</div>
             
-            <div class="vehicle-detail-grid">
-                <div class="vehicle-image-container">
-                    <img src="vitara2017/imagen1.png" alt="Suzuki Vitara 2017 choque lateral izquierdo" class="vehicle-main-image">
-                </div>
+            <div class="vehicle-image-container">
+    <div class="sold-overlay">VENDIDO</div>
+    <img src="vitara2017/imagen1.png" alt="Suzuki Vitara 2017 choque lateral izquierdo" class="vehicle-main-image">
+</div>
                 
                 <div class="vehicle-info-container">
                     <div class="vehicle-description">
