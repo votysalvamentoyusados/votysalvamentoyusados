@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Honda Fit 2018 - BOTY SALVAMENTOS Y USADOS</title>
+
+<meta name="description" content="Honda Fit 2018 chocado del lado derecho severamente en BOTY Salvamentos y Usados, Alma Rosa Segunda. Precio RD$245,000.">
+
+<meta name="keywords" content="Honda Fit 2018 RD, Fit chocado republica dominicana, Honda Fit salvamento, Fit 2018 lado derecho">
+
+<meta name="author" content="BOTY SALVAMENTOS Y USADOS">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://www.botysalvamentosyusados.com/honda-fit-2018.html">
+
+<meta name="geo.region" content="DO">
+<meta name="geo.placename" content="Alma Rosa Segunda, Santo Domingo Este">
+<meta name="geo.position" content="18.4889;-69.8516">
+<meta name="ICBM" content="18.4889, -69.8516">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: white;
+            color: #000000;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header con logo y menú hamburguesa */
+        header {
+            background-color: white;
+            padding: 15px 0;
+            border-bottom: 3px solid #333;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo-left {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000000;
+            letter-spacing: 1.5px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        .logo-left::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #666;
+        }
+        
+        /* Menú hamburguesa */
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 24px;
+            cursor: pointer;
+            z-index: 1002;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+        
+        /* Menú desplegable lateral derecho */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 280px;
+            height: 100vh;
+            background-color: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+            padding-top: 0;
+        }
+        
+        .side-menu.active {
+            right: 0;
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            background-color: #f8f8f8;
+        }
+        
+        .menu-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        /* Botón de cierre dentro del menú */
+        .close-menu {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background: none;
+            border: none;
+            position: relative;
+        }
+        
+        .close-menu span {
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background-color: #333;
+            border-radius: 1px;
+        }
+        
+        .close-menu span:first-child {
+            transform: rotate(45deg);
+        }
+        
+        .close-menu span:last-child {
+            transform: rotate(-45deg);
+        }
+        
+        .close-menu:hover span {
+            background-color: #000;
+        }
+        
+        .menu-items {
+            padding: 15px 0;
+        }
+        
+        .menu-item {
+            display: block;
+            padding: 15px 25px;
+            color: #333;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            background-color: #f5f5f5;
+            color: #000;
+            border-left: 4px solid #666;
+        }
+        
+        .menu-item:active {
+            background-color: #eee;
+        }
+        
+        /* Sección del Honda Fit 2018 */
+        .vehicle-detail-section {
+            padding: 40px 0;
+        }
+        
+        .vehicle-title-main {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #000;
+            text-align: center;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .vehicle-subtitle {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #dc3545;
+            text-align: center;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .vehicle-price-main {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .vehicle-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .vehicle-image-container {
+            width: 100%;
+            height: 450px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .vehicle-main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #f5f5f5;
+        }
+        
+        .vehicle-info-container {
+            padding: 20px;
+        }
+        
+        .vehicle-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .good-news {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            color: #155724;
+        }
+        
+        .good-news h4 {
+            color: #155724;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .good-news ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .good-news li {
+            margin-bottom: 8px;
+        }
+        
+        .vehicle-features {
+            margin-top: 30px;
+        }
+        
+        .features-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #000;
+        }
+        
+        .features-list {
+            list-style-type: none;
+        }
+        
+        .features-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            color: #333;
+        }
+        
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .highlight-feature {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .damage-warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            color: #856404;
+        }
+        
+        .damage-warning h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .damage-warning ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .damage-warning li {
+            margin-bottom: 5px;
+        }
+        
+        /* Sección de 2 divs con imágenes y texto */
+        .gallery-details {
+            margin: 50px 0;
+        }
+        
+        .gallery-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #000;
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+        
+        .detail-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            gap: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .detail-container:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .detail-image {
+            flex: 1;
+            min-width: 300px;
+            height: 300px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .detail-text {
+            flex: 2;
+            padding: 10px;
+        }
+        
+        .detail-text h3 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #000;
+        }
+        
+        .detail-text p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .condition-highlight {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .damage-highlight {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        /* Sección única de contacto */
+        .contact-section {
+            background-color: #666;
+            padding: 30px 0;
+            margin-top: auto;
+            color: #ffffff;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+        
+        .contact-container {
+            text-align: center;
+            padding: 0 20px;
+            max-width: none;
+        }
+        
+        .business-name {
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ffffff;
+            letter-spacing: 0.8px;
+        }
+        
+        .contact-title {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        
+        .contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+        
+        .contact-person {
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        
+        .phone-number {
+            font-size: 1rem;
+            color: #ffffff;
+            margin-top: 2px;
+        }
+        
+        .address {
+            font-size: 0.95rem;
+            color: #ffffff;
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+        
+        .schedule {
+            font-size: 0.9rem;
+            color: #ffffff;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        .rights {
+            font-size: 0.95rem;
+            color: #ffffff;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            font-weight: normal;
+            font-style: normal;
+            letter-spacing: 0.3px;
+            line-height: 1.4;
+        }
+        
+        .rights-name {
+            color: #ffffff;
+            font-weight: normal;
+            font-size: 0.95rem;
+        }
+        
+        .copyright {
+            font-size: 0.7rem;
+            color: #ddd;
+            margin-top: 3px;
+        }
+        
+        /* Botones flotantes de WhatsApp */
+        .whatsapp-buttons {
+            position: fixed;
+            right: 20px;
+            bottom: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+        }
+        
+        .whatsapp-btn {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-5px);
+        }
+        
+        .whatsapp-text {
+            background-color: #25D366;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover .whatsapp-icon {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        
+        .whatsapp-icon img {
+            width: 35px;
+            height: 35px;
+        }
+        
+        /* Botón de volver al inicio */
+        .back-home {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .back-home:hover {
+            background-color: #000;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .vehicle-detail-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .vehicle-image-container {
+                height: 400px;
+            }
+            
+            .detail-container {
+                flex-direction: column;
+            }
+            
+            .detail-container:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            .detail-image {
+                min-width: 100%;
+                height: 280px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .vehicle-title-main {
+                font-size: 1.8rem;
+            }
+            
+            .vehicle-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .vehicle-price-main {
+                font-size: 1.5rem;
+            }
+            
+            .vehicle-image-container {
+                height: 350px;
+            }
+            
+            .gallery-title {
+                font-size: 1.5rem;
+            }
+            
+            .detail-image {
+                height: 250px;
+            }
+            
+            .detail-text h3 {
+                font-size: 1.2rem;
+            }
+            
+            .detail-text p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .vehicle-title-main {
+                font-size: 1.5rem;
+            }
+            
+            .vehicle-subtitle {
+                font-size: 1rem;
+            }
+            
+            .vehicle-price-main {
+                font-size: 1.3rem;
+            }
+            
+            .vehicle-image-container {
+                height: 280px;
+            }
+            
+            .detail-image {
+                height: 220px;
+                min-width: 100%;
+            }
+            
+            .gallery-title {
+                font-size: 1.3rem;
+            }
+        }
+        .footer-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+/* Evitar borde blanco y que coincida con el footer */
+.footer-social a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    border: none;
+    outline: none;
+}
+
+.footer-social a:hover {
+    transform: scale(1.1);
+}
+
+.footer-instagram {
+    width: 55px;
+    height: 55px;
+    border: 2px solid #666;
+    border-radius: 20%;
+    background-color: #666;
+    padding: 5px;
+}
+    </style>
+</head>
+<body>
+    <!-- Overlay para cerrar menú -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    
+    <!-- Menú desplegable lateral derecho -->
+    <div class="side-menu" id="sideMenu">
+        <div class="menu-header">
+            <div class="menu-title">NAVEGACIÓN</div>
+            <button class="close-menu" id="closeMenu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="menu-items">
+            <a href="index.html" class="menu-item">INICIO</a>
+            <a href="jeepeta.html" class="menu-item">JEEPETA</a>
+            <a href="camioneta.html" class="menu-item">CAMIONETAS</a>
+            <a href="compactos.html" class="menu-item">AUTOS COMPACTOS</a>
+            <a href="sedan.html" class="menu-item">SEDAN</a>
+        </div>
+    </div>
+    
+    <header>
+        <div class="header-content">
+            <div class="logo-left">BOTY SALVAMENTOS Y USADOS</div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Detalle del Honda Fit 2018 -->
+    <div class="container">
+        <div class="vehicle-detail-section">
+            <h1 class="vehicle-title-main">HONDA FIT 2018</h1>
+            <div class="vehicle-subtitle">⚠️ IMPACTO LATERAL DERECHO SEVERO - SIN GOMAS - CAPÓ DAÑADO</div>
+            <div class="vehicle-price-main">RD$ 245,000</div>
+            
+            <div class="vehicle-detail-grid">
+                <div class="vehicle-image-container">
+                    <img src="29-Honda%20fit%202018/imagen1.png" alt="Honda Fit 2018 chocado lado derecho" class="vehicle-main-image">
+                </div>
+                
+                <div class="vehicle-info-container">
+                    <div class="vehicle-description">
+                        Este <span class="condition-highlight">Honda Fit 2018 es un hatchback compacto de última generación</span>, reconocido por su versatilidad, eficiencia y confiabilidad. Ha sufrido un <span class="damage-highlight">impacto severo en el lado derecho</span>, con daños extensos que incluyen: <span class="damage-highlight">"sin gomas, capó dañado"</span>. A pesar de los daños, este modelo conserva un <span class="condition-highlight">alto valor en el mercado de repuestos debido a la demanda de sus componentes mecánicos, electrónicos y de carrocería</span>. Es una excelente oportunidad para taller o comprador de salvamentos.
+                    </div>
+                    
+                    <div class="good-news">
+                        <h4>✅ COMPONENTES VALIOSOS POSIBLEMENTE RECUPERABLES:</h4>
+                        <ul>
+                            <li>• <strong>MOTOR 1.5L i-VTEC</strong> - Motor de alta eficiencia y durabilidad</li>
+                            <li>• <strong>TRANSMISIÓN CVT O MANUAL</strong> - Transmisión de última generación</li>
+                            <li>• <strong>INTERIOR MODERNO</strong> - Asientos Magic Seat, tablero digital, componentes electrónicos</li>
+                            <li>• <strong>SISTEMA DE INFOENTRETENIMIENTO</strong> - Pantalla táctil, conectividad</li>
+                            <li>• <strong>COMPONENTES ELÉCTRICOS</strong> - Módulos, sensores y sistemas avanzados</li>
+                            <li>• <strong>PARTES DEL LADO IZQUIERDO</strong> - Puertas, espejos, cristales en buen estado</li>
+                            <li>• <strong>ASIENTOS TRASEROS MAGIC SEAT</strong> - Sistema exclusivo de Honda, muy valorado</li>
+                            <li>• <strong>SISTEMA DE AIRE ACONDICIONADO</strong> - Compresor y componentes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="vehicle-features">
+                        <h3 class="features-title">ESPECIFICACIONES ORIGINALES - HONDA FIT 2018</h3>
+                        <ul class="features-list">
+                            <li>• <span class="highlight-feature">Motor 1.5L DOHC i-VTEC (L15B)</span> - Aprox. 130 HP (generación más potente)</li>
+                            <li>• Transmisión CVT (automática) o Manual de 6 velocidades</li>
+                            <li>• Tracción delantera (FWD)</li>
+                            <li>• Sistema Magic Seat (asientos traseros con múltiples configuraciones)</li>
+                            <li>• Dirección asistida eléctricamente (EPS)</li>
+                            <li>• Aire acondicionado automático</li>
+                            <li>• Sistema de infoentretenimiento con pantalla táctil de 7 pulgadas</li>
+                            <li>• Compatibilidad con Android Auto y Apple CarPlay</li>
+                            <li>• Cámara de reversa multiángulo</li>
+                            <li>• Bluetooth, USB, AUX, HDMI</li>
+                            <li>• Volante forrado en cuero con controles de audio</li>
+                            <li>• Levanta vidrios eléctricos en todas las puertas</li>
+                            <li>• Seguros eléctricos con cierre centralizado</li>
+                            <li>• Espejos laterales ajustables eléctricamente</li>
+                            <li>• Bolsas de aire frontales, laterales y de cortina</li>
+                            <li>• Frenos ABS con distribución electrónica (EBD)</li>
+                            <li>• Control de estabilidad (VSA)</li>
+                            <li>• Asistente de arranque en pendientes (HSA)</li>
+                            <li>• Llantas de aleación de 15 o 16 pulgadas</li>
+                            <li>• Capacidad del tanque: 40 litros</li>
+                            <li>• Consumo promedio: 16-20 km/l (excelente eficiencia)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="damage-warning">
+                        <h4>⚠️ DAÑOS IDENTIFICADOS - LADO DERECHO SEVERAMENTE AFECTADO:</h4>
+                        <ul>
+                            <li>• <span class="damage-highlight">IMPACTO LATERAL DERECHO SEVERO</span> - Daños extensos en toda el área lateral derecha</li>
+                            <li>• <span class="damage-highlight">SIN GOMAS</span> - Las llantas y neumáticos del lado derecho están ausentes/destruidos</li>
+                            <li>• <span class="damage-highlight">CAPÓ DAÑADO</span> - El capó presenta daños significativos</li>
+                            <li>• Puertas del lado derecho probablemente destruidas</li>
+                            <li>• Guardabarros delantero y trasero derecho gravemente dañados</li>
+                            <li>• Espejo lateral derecho destruido</li>
+                            <li>• Posibles daños en el pilar central y estructura lateral</li>
+                            <li>• Rines del lado derecho destruidos</li>
+                            <li>• Suspensión delantera y trasera derecha posiblemente afectada</li>
+                            <li>• Eje de transmisión del lado derecho posiblemente dañado</li>
+                            <li>• Sistema de frenos del lado derecho afectado</li>
+                            <li>• Bolsas de aire laterales y de cortina posiblemente desplegadas</li>
+                            <li>• Cristales laterales derechos rotos</li>
+                        </ul>
+                        <p><strong>Nota importante:</strong> Este Honda Fit 2018 se vende COMO ESTÁ para proyecto de reparación o despiece. Es un vehículo con daños severos en el lado derecho, pero los componentes del lado izquierdo, motor, transmisión, interior y sistemas electrónicos podrían estar en excelentes condiciones y tener un alto valor en el mercado de repuestos. Es una <strong>excelente oportunidad para obtener repuestos originales de un Honda Fit de última generación a una fracción de su costo</strong> en concesionario. Ideal para talleres especializados en Honda y compradores de salvamentos.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección de 2 divs con imágenes y texto -->
+            <div class="gallery-details">
+                <h2 class="gallery-title">HONDA FIT 2018 - ESTADO ACTUAL</h2>
+                
+                <!-- Div 1 - Imagen 1 - Vista del daño lateral derecho -->
+                <div class="detail-container">
+                    <div class="detail-image">
+                        <img src="29-Honda%20fit%202018/imagen1.png" alt="Honda Fit 2018 lado derecho daños">
+                    </div>
+                    <div class="detail-text">
+                        <h3>Impacto Lateral Derecho - Daños Severos</h3>
+                        <p>Esta imagen muestra la <span class="damage-highlight">severidad del impacto en el lado derecho</span> de este Honda Fit 2018. Tal como se describe: <span class="damage-highlight">"chocado del lado derecho severamente, sin gomas, capó dañado"</span>. Se puede apreciar la magnitud de los daños en toda el área lateral derecha, incluyendo puertas, guardabarros, y la ausencia de neumáticos. El <span class="damage-highlight">capó también presenta daños visibles</span>. A pesar de esto, el lado izquierdo, el motor, la transmisión y el interior podrían estar en perfectas condiciones, representando una valiosa fuente de repuestos.</p>
+                    </div>
+                </div>
+                
+                <!-- Div 2 - Imagen 2 - Otra vista o interior/componentes -->
+                <div class="detail-container">
+                    <div class="detail-image">
+                        <img src="29-Honda%20fit%202018/imagen2.png" alt="Honda Fit 2018 componentes de valor">
+                    </div>
+                    <div class="detail-text">
+                        <h3>Interior y Componentes de Alto Valor</h3>
+                        <p>A pesar de los graves daños exteriores, el <span class="condition-highlight">interior de este Honda Fit 2018 puede conservar componentes extremadamente valiosos</span>. Esta generación de Fit cuenta con el <span class="condition-highlight">sistema Magic Seat de Honda</span> (asientos traseros con múltiples configuraciones), sistema de infoentretenimiento con pantalla táctil, compatibilidad con Android Auto/Apple CarPlay, y múltiples módulos electrónicos de última generación. Estos componentes tienen una alta demanda en el mercado de repuestos. Este vehículo representa una <span class="condition-highlight">excelente oportunidad para obtener repuestos originales de un Honda Fit 2018 a una fracción de su costo</span> en concesionario. Ideal para talleres especializados en Honda y compradores de salvamentos.</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="compactos.html" class="back-home">← VER MÁS AUTOS COMPACTOS</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sección única de contacto -->
+    <div class="contact-section">
+        <div class="contact-container">
+            <div class="business-name">BOTY SALVAMENTOS Y USADOS</div>
+            
+            <div class="contact-title">CONTACTO</div>
+            
+            <div class="contacts">
+                <div class="contact-person">
+                    CHIKI
+                    <div class="phone-number">(829) 539-4647</div>
+                </div>
+                
+                <div class="contact-person">
+                    VICTOR DURÁN
+                    <div class="phone-number">829-605-1025</div>
+                </div>
+            </div>
+            
+            <div class="address">Zona Oriental, Alma Rosa Segunda.</div>
+            
+            <div class="schedule">
+                Lunes a Viernes: 7:00 AM - 6:00 PM<br>
+                Sábados y Domingos: 1:00 PM - 6:00 PM
+            </div>
+            <div class="footer-social">
+    <a href="https://www.instagram.com/salvamentosyusados/?__pwa=1" target="_blank" title="Instagram Salvamentos y Usados">
+        <img src="logos/instagram.png" alt="Instagram" class="footer-instagram">
+    </a>
+</div>
+            <div class="rights">
+                <span class="rights-name">BOTY SALVAMENTOS Y USADOS</span><br>
+                <span class="copyright">© 2026 - TODOS LOS DERECHOS RESERVADOS</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Botones flotantes de WhatsApp -->
+    <div class="whatsapp-buttons">
+        <!-- Botón 1: Victor Durán -->
+        <a href="https://wa.me/18296051025?text=Estoy%20interesado%20en%20el%20Honda%20Fit%202018%20chocado%20del%20lado%20derecho!" 
+           target="_blank" 
+           class="whatsapp-btn"
+           title="Contactar a Victor Durán por WhatsApp">
+            <div class="whatsapp-text">VICTOR DURÁN<br>829-605-1025</div>
+            <div class="whatsapp-icon">
+                <img src="logos/whatsapp.png" alt="WhatsApp">
+            </div>
+        </a>
+        
+        <!-- Botón 2: Chiki -->
+        <a href="https://wa.me/18295394647?text=Estoy%20interesado%20en%20el%20Honda%20Fit%202018%20chocado%20del%20lado%20derecho!" 
+           target="_blank" 
+           class="whatsapp-btn"
+           title="Contactar a Chiki por WhatsApp">
+            <div class="whatsapp-text">CHIKI<br>829-539-4647</div>
+            <div class="whatsapp-icon">
+                <img src="logos/whatsapp.png" alt="WhatsApp">
+            </div>
+        </a>
+    </div>
+
+    <script>
+        // Funcionalidad del menú desplegable
+        const menuToggle = document.getElementById('menuToggle');
+        const sideMenu = document.getElementById('sideMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const closeMenu = document.getElementById('closeMenu');
+        
+        // Abrir menú
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.add('active');
+            sideMenu.classList.add('active');
+            menuOverlay.classList.add('active');
+        });
+        
+        // Cerrar menú con botón X
+        closeMenu.addEventListener('click', () => {
+            closeMenuFunc();
+        });
+        
+        // Cerrar menú al hacer clic en el overlay
+        menuOverlay.addEventListener('click', () => {
+            closeMenuFunc();
+        });
+        
+        // Cerrar menú al hacer clic en un enlace del menú
+        const menuItems = document.querySelectorAll('.menu-item');
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                closeMenuFunc();
+            });
+        });
+        
+        // Cerrar menú al presionar la tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMenuFunc();
+            }
+        });
+        
+        // Función para cerrar el menú
+        function closeMenuFunc() {
+            menuToggle.classList.remove('active');
+            sideMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+        }
+    </script>
+</body>
+</html>
