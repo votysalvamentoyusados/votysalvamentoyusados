@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AUTOS COMPACTOS - BOTY SALVAMENTOS Y USADOS</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Meta tags SEO -->
-    <meta name="description" content="AUTOS COMPACTOS disponibles en BOTY Salvamentos y Usados. Compra los mejores autos compactos usados y salvamentos en Alma Rosa Segunda, Zona Oriental, Santo Domingo Este.">
-    <meta name="keywords" content="autos compactos usados, autos compactos salvamentos, suzuki celerio, toyota passo, nissan march, mazda demio, honda fit, carros compactos">
-    <meta name="author" content="BOTY Salvamentos y Usados">
-    <meta name="robots" content="index, follow">
-    
+<title>Mazda Demio 2018 - BOTY SALVAMENTOS Y USADOS</title>
+
+<meta name="description" content="Mazda Demio 2018 en BOTY Salvamentos y Usados, Alma Rosa Segunda. Precio RD$345,000.">
+
+<meta name="keywords" content="Mazda Demio 2018 RD, Demio usada republica dominicana, Mazda Demio">
+
+<meta name="author" content="BOTY SALVAMENTOS Y USADOS">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://www.botysalvamentosyusados.com/mazda-demio-2018.html">
+
+<meta name="geo.region" content="DO">
+<meta name="geo.placename" content="Alma Rosa Segunda, Santo Domingo Este">
+<meta name="geo.position" content="18.4889;-69.8516">
+<meta name="ICBM" content="18.4889, -69.8516">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
     <style>
         * {
             margin: 0;
@@ -216,13 +226,132 @@
             background-color: #eee;
         }
         
-        /* GALERÍA DE AUTOS COMPACTOS */
-        .gallery-section {
+        /* Sección del Mazda Demio 2018 */
+        .vehicle-detail-section {
             padding: 40px 0;
         }
         
+        .vehicle-title-main {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #000;
+            text-align: center;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .vehicle-subtitle {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #28a745;
+            text-align: center;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .vehicle-price-main {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .vehicle-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .vehicle-image-container {
+            width: 100%;
+            height: 450px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .vehicle-main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #f5f5f5;
+        }
+        
+        .vehicle-info-container {
+            padding: 20px;
+        }
+        
+        .vehicle-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .good-news {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            color: #155724;
+        }
+        
+        .good-news h4 {
+            color: #155724;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .good-news ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .good-news li {
+            margin-bottom: 8px;
+        }
+        
+        .vehicle-features {
+            margin-top: 30px;
+        }
+        
+        .features-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #000;
+        }
+        
+        .features-list {
+            list-style-type: none;
+        }
+        
+        .features-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            color: #333;
+        }
+        
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .highlight-feature {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        /* Sección de 2 divs con imágenes y texto */
+        .gallery-details {
+            margin: 50px 0;
+        }
+        
         .gallery-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: bold;
             color: #000;
             text-align: center;
@@ -230,60 +359,63 @@
             letter-spacing: 1px;
         }
         
-        .vehicles-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+        .detail-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
             gap: 30px;
-        }
-        
-        .vehicle-card {
-            background-color: white;
+            padding: 20px;
+            background-color: #f9f9f9;
             border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .detail-container:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .detail-image {
+            flex: 1;
+            min-width: 300px;
+            height: 300px;
+            border-radius: 6px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        .vehicle-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .vehicle-image-link {
-            display: block;
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .vehicle-image {
+        .detail-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+            object-fit: contain;
+            max-width: 100%;
+            max-height: 100%;
         }
         
-        .vehicle-card:hover .vehicle-image {
-            transform: scale(1.05);
+        .detail-text {
+            flex: 2;
+            padding: 10px;
         }
         
-        .vehicle-info {
-            padding: 20px;
-        }
-        
-        .vehicle-title {
-            font-size: 1.3rem;
+        .detail-text h3 {
+            font-size: 1.4rem;
             font-weight: bold;
+            margin-bottom: 15px;
             color: #000;
-            margin-bottom: 8px;
-            line-height: 1.3;
         }
         
-        .vehicle-price {
-            font-size: 1.1rem;
+        .detail-text p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .condition-highlight {
+            color: #28a745;
             font-weight: bold;
-            color: #000;
-            line-height: 1.3;
         }
         
         /* Sección única de contacto */
@@ -376,7 +508,7 @@
             margin-top: 3px;
         }
         
-        /* ============ BOTONES FLOTANTES DE WHATSAPP ============ */
+        /* Botones flotantes de WhatsApp */
         .whatsapp-buttons {
             position: fixed;
             right: 20px;
@@ -437,7 +569,7 @@
         /* Botón de volver al inicio */
         .back-home {
             display: inline-block;
-            margin: 20px auto;
+            margin-top: 20px;
             padding: 10px 20px;
             background-color: #333;
             color: white;
@@ -445,352 +577,124 @@
             border-radius: 4px;
             font-weight: bold;
             transition: background-color 0.3s;
-            text-align: center;
         }
         
         .back-home:hover {
             background-color: #000;
         }
         
-        /* ============ RESPONSIVE DESIGN ============ */
-        
-        /* Tablet (1024px a 769px) */
+        /* Responsive */
         @media (max-width: 1024px) {
-            .vehicles-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
+            .vehicle-detail-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
             
-            .container {
-                padding: 0 15px;
+            .vehicle-image-container {
+                height: 400px;
             }
             
-            .whatsapp-buttons {
-                right: 15px;
-                bottom: 90px;
-                gap: 12px;
+            .detail-container {
+                flex-direction: column;
             }
             
-            .whatsapp-text {
-                font-size: 0.75rem;
-                padding: 6px 10px;
+            .detail-container:nth-child(even) {
+                flex-direction: column;
             }
             
-            .whatsapp-icon {
-                width: 55px;
-                height: 55px;
-            }
-            
-            .whatsapp-icon img {
-                width: 30px;
-                height: 30px;
+            .detail-image {
+                min-width: 100%;
+                height: 280px;
             }
         }
         
-        /* Tablet pequeña (768px a 481px) */
         @media (max-width: 768px) {
-            .header-content {
-                padding: 0 15px;
+            .vehicle-title-main {
+                font-size: 1.8rem;
             }
             
-            .logo-left {
-                font-size: 1.3rem;
-                letter-spacing: 1px;
-            }
-            
-            .gallery-title {
-                font-size: 1.7rem;
-                margin-bottom: 30px;
-            }
-            
-            .vehicles-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-            
-            .vehicle-title {
-                font-size: 1.2rem;
-            }
-            
-            .vehicle-price {
-                font-size: 1rem;
-            }
-            
-            .contact-section {
-                padding: 25px 0;
-            }
-            
-            .business-name {
-                font-size: 1.4rem;
-                margin-bottom: 15px;
-            }
-            
-            .contact-title {
-                font-size: 1rem;
-            }
-            
-            .contacts {
-                gap: 10px;
-            }
-            
-            .contact-person {
-                font-size: 0.9rem;
-            }
-            
-            .phone-number {
-                font-size: 0.95rem;
-            }
-            
-            .address, .schedule {
-                font-size: 0.85rem;
-            }
-            
-            .rights {
-                font-size: 0.85rem;
-            }
-            
-            .rights-name {
-                font-size: 0.85rem;
-            }
-            
-            .copyright {
-                font-size: 0.65rem;
-            }
-            
-            .whatsapp-buttons {
-                right: 10px;
-                bottom: 80px;
-                gap: 10px;
-            }
-            
-            .whatsapp-text {
-                font-size: 0.7rem;
-                padding: 5px 8px;
-            }
-            
-            .whatsapp-icon {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .whatsapp-icon img {
-                width: 28px;
-                height: 28px;
-            }
-        }
-        
-        /* Móvil (480px a 321px) */
-        @media (max-width: 480px) {
-            .header-content {
-                padding: 0 10px;
-            }
-            
-            .logo-left {
+            .vehicle-subtitle {
                 font-size: 1.1rem;
-                letter-spacing: 0.8px;
-                padding-bottom: 3px;
             }
             
-            .logo-left::after {
-                height: 1px;
-                bottom: -2px;
+            .vehicle-price-main {
+                font-size: 1.5rem;
+            }
+            
+            .vehicle-image-container {
+                height: 350px;
             }
             
             .gallery-title {
                 font-size: 1.5rem;
-                margin-bottom: 25px;
             }
             
-            .vehicles-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
+            .detail-image {
+                height: 250px;
             }
             
-            .vehicle-image-link {
-                height: 180px;
-            }
-            
-            .vehicle-title {
-                font-size: 1.1rem;
-            }
-            
-            .vehicle-price {
-                font-size: 0.95rem;
-            }
-            
-            .contact-section {
-                padding: 20px 0;
-            }
-            
-            .business-name {
+            .detail-text h3 {
                 font-size: 1.2rem;
-                margin-bottom: 12px;
             }
             
-            .contact-title {
-                font-size: 0.9rem;
-                margin-bottom: 12px;
-            }
-            
-            .contacts {
-                gap: 8px;
-                margin-bottom: 12px;
-            }
-            
-            .contact-person {
-                font-size: 0.85rem;
-            }
-            
-            .phone-number {
-                font-size: 0.9rem;
-            }
-            
-            .address {
-                font-size: 0.8rem;
-                line-height: 1.4;
-                margin-bottom: 4px;
-            }
-            
-            .schedule {
-                font-size: 0.75rem;
-                line-height: 1.5;
-                margin-bottom: 20px;
-            }
-            
-            .rights {
-                font-size: 0.8rem;
-                margin-top: 15px;
-                padding-top: 12px;
-                line-height: 1.3;
-            }
-            
-            .rights-name {
-                font-size: 0.8rem;
-            }
-            
-            .copyright {
-                font-size: 0.6rem;
-            }
-            
-            .container {
-                padding: 0 10px;
-            }
-            
-            .whatsapp-buttons {
-                right: 8px;
-                bottom: 70px;
-                gap: 8px;
-            }
-            
-            .whatsapp-text {
-                font-size: 0.65rem;
-                padding: 4px 6px;
-            }
-            
-            .whatsapp-icon {
-                width: 45px;
-                height: 45px;
-            }
-            
-            .whatsapp-icon img {
-                width: 25px;
-                height: 25px;
-            }
-            
-            .side-menu {
-                width: 250px;
+            .detail-text p {
+                font-size: 1rem;
             }
         }
         
-        /* Móvil pequeño (320px o menos) */
-        @media (max-width: 320px) {
-            .logo-left {
+        @media (max-width: 480px) {
+            .vehicle-title-main {
+                font-size: 1.5rem;
+            }
+            
+            .vehicle-subtitle {
                 font-size: 1rem;
-                letter-spacing: 0.5px;
+            }
+            
+            .vehicle-price-main {
+                font-size: 1.3rem;
+            }
+            
+            .vehicle-image-container {
+                height: 280px;
+            }
+            
+            .detail-image {
+                height: 220px;
+                min-width: 100%;
             }
             
             .gallery-title {
                 font-size: 1.3rem;
             }
-            
-            .vehicle-title {
-                font-size: 1rem;
-            }
-            
-            .vehicle-price {
-                font-size: 0.9rem;
-            }
-            
-            .business-name {
-                font-size: 1.1rem;
-            }
-            
-            .contact-title {
-                font-size: 0.85rem;
-            }
-            
-            .contact-person {
-                font-size: 0.8rem;
-            }
-            
-            .phone-number {
-                font-size: 0.85rem;
-            }
-            
-            .address, .schedule {
-                font-size: 0.75rem;
-            }
-            
-            .rights, .rights-name {
-                font-size: 0.75rem;
-            }
-            
-            .copyright {
-                font-size: 0.55rem;
-            }
-            
-            .whatsapp-text {
-                font-size: 0.6rem;
-                padding: 3px 5px;
-            }
-            
-            .whatsapp-icon {
-                width: 40px;
-                height: 40px;
-            }
-            
-            .whatsapp-icon img {
-                width: 22px;
-                height: 22px;
-            }
-            
-            .side-menu {
-                width: 220px;
-            }
         }
-        
-        /* Pantallas grandes (más de 1600px) */
-        @media (min-width: 1601px) {
-            .container {
-                max-width: 90%;
-            }
-            
-            .vehicles-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        
-        /* Para pantallas muy pequeñas en altura */
-        @media (max-height: 500px) {
-            .whatsapp-buttons {
-                bottom: 50px;
-                gap: 5px;
-            }
-            
-            .vehicle-image-link {
-                height: 150px;
-            }
-        }
+        .footer-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+/* Evitar borde blanco y que coincida con el footer */
+.footer-social a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    border: none;
+    outline: none;
+}
+
+.footer-social a:hover {
+    transform: scale(1.1);
+}
+
+.footer-instagram {
+    width: 55px;
+    height: 55px;
+    border: 2px solid #666;
+    border-radius: 20%;
+    background-color: #666;
+    padding: 5px;
+}
     </style>
 </head>
 <body>
@@ -800,7 +704,7 @@
     <!-- Menú desplegable lateral derecho -->
     <div class="side-menu" id="sideMenu">
         <div class="menu-header">
-            <div class="menu-title">CATEGORÍAS</div>
+            <div class="menu-title">NAVEGACIÓN</div>
             <button class="close-menu" id="closeMenu">
                 <span></span>
                 <span></span>
@@ -817,8 +721,7 @@
     
     <header>
         <div class="header-content">
-            <!-- H1 para SEO -->
-            <h1 style="margin: 0; padding: 0; font-size: 1.5rem; font-weight: bold; color: #000000;">Autos Compactos</h1>
+            <div class="logo-left">BOTY SALVAMENTOS Y USADOS</div>
             <div class="menu-toggle" id="menuToggle">
                 <span></span>
                 <span></span>
@@ -827,72 +730,93 @@
         </div>
     </header>
     
-    <!-- Galería de AUTOS COMPACTOS -->
+    <!-- Detalle del Mazda Demio 2018 -->
     <div class="container">
-        <div class="gallery-section">
-            <!-- H2 para la sección -->
-            <h2 class="gallery-title">AUTOS COMPACTOS DISPONIBLES</h2>
+        <div class="vehicle-detail-section">
+            <h1 class="vehicle-title-main">MAZDA DEMIO 2018</h1>
+            <div class="vehicle-subtitle">⭐ AUTO COMPACTO - ECONÓMICO Y CONFIABLE</div>
+            <div class="vehicle-price-main">RD$ 345,000</div>
             
-            <div class="vehicles-grid">
-                <!-- Auto Compacto 1 - Suzuki Celerio 2024 (imagen12.png) -->
-                <div class="vehicle-card">
-                    <a href="12-celerio-2024.html" class="vehicle-image-link">
-                        <img src="AUTOS COMPACTOS/imagen12.png" alt="Suzuki Celerio 2024" class="vehicle-image">
-                    </a>
-                    <div class="vehicle-info">
-                        <div class="vehicle-title">Suzuki Celerio 2024</div>
-                        <div class="vehicle-price">RD$ 455,000</div>
-                    </div>
+            <div class="vehicle-detail-grid">
+                <div class="vehicle-image-container">
+                    <img src="mazda%20demio/imagen1.png" alt="Mazda Demio 2018" class="vehicle-main-image">
                 </div>
                 
-                <!-- Auto Compacto 2 - Toyota Passo 2018 (imagen15.png) -->
-                <div class="vehicle-card">
-                    <a href="15-toyota-passo-2018.html" class="vehicle-image-link">
-                        <img src="AUTOS COMPACTOS/imagen15.png" alt="Toyota Passo 2018" class="vehicle-image">
-                    </a>
-                    <div class="vehicle-info">
-                        <div class="vehicle-title">Toyota Passo 2018</div>
-                        <div class="vehicle-price">RD$ 285,000</div>
+                <div class="vehicle-info-container">
+                    <div class="vehicle-description">
+                        Este <span class="condition-highlight">Mazda Demio 2018 es un auto compacto ideal para la ciudad</span>, reconocido por su <span class="condition-highlight">excelente economía de combustible y confiabilidad mecánica</span>. Este modelo destaca por su diseño moderno y funcional, ofreciendo un equilibrio perfecto entre estilo, eficiencia y practicidad. Es un vehículo <span class="condition-highlight">fácil de estacionar, maniobrar y mantener</span>, perfecto para quienes buscan un auto para el día a día sin complicaciones.
                     </div>
-                </div>
-                
-                <!-- Auto Compacto 3 - NUEVO: Nissan March (imagen19.jpeg) -->
-                <div class="vehicle-card">
-                    <a href="19-nissan-march.html" class="vehicle-image-link">
-                        <img src="AUTOS COMPACTOS/imagen19.jpeg" alt="Nissan March" class="vehicle-image">
-                    </a>
-                    <div class="vehicle-info">
-                        <div class="vehicle-title">Nissan March</div>
-                        <div class="vehicle-price">RD$ 315,000</div>
+                    
+                    <div class="good-news">
+                        <h4>✅ CARACTERÍSTICAS DESTACADAS:</h4>
+                        <ul>
+                            <li>• <strong>MOTOR EFICIENTE SKYACTIV-G 1.5L</strong> - Tecnología avanzada de Mazda</li>
+                            <li>• <strong>EXCELENTE CONSUMO DE COMBUSTIBLE</strong> - Ideal para uso diario</li>
+                            <li>• <strong>DISEÑO COMPACTO</strong> - Fácil de estacionar en la ciudad</li>
+                            <li>• <strong>INTERIOR FUNCIONAL</strong> - Espacio optimizado para conductor y pasajeros</li>
+                            <li>• <strong>MANEJO ÁGIL Y PRECISO</strong> - Dirección responsive y suspensión bien calibrada</li>
+                            <li>• <strong>MANTENIMIENTO ECONÓMICO</strong> - Repuestos accesibles</li>
+                        </ul>
                     </div>
-                </div>
-                
-                <!-- Auto Compacto 4 - NUEVO: Mazda Demio 2018 (imagen23.jpeg) -->
-                <div class="vehicle-card">
-                    <a href="23-mazda-demio-2018.html" class="vehicle-image-link">
-                        <img src="AUTOS COMPACTOS/imagen23.png" alt="Mazda Demio 2018" class="vehicle-image">
-                    </a>
-                    <div class="vehicle-info">
-                        <div class="vehicle-title">Mazda Demio 2018</div>
-                        <div class="vehicle-price">RD$ 345,000</div>
+                    
+                    <div class="vehicle-features">
+                        <h3 class="features-title">ESPECIFICACIONES - MAZDA DEMIO 2018</h3>
+                        <ul class="features-list">
+                            <li>• <span class="highlight-feature">Motor SKYACTIV-G 1.5L 4 cilindros</span> - Aprox. 107 HP</li>
+                            <li>• Transmisión Manual de 5 velocidades / Automática (dependiendo versión)</li>
+                            <li>• Tracción delantera (FWD)</li>
+                            <li>• Dirección asistida eléctricamente</li>
+                            <li>• Aire acondicionado</li>
+                            <li>• Sistema de audio con Bluetooth, USB y AUX</li>
+                            <li>• Levanta vidrios eléctricos</li>
+                            <li>• Seguros eléctricos con cierre centralizado</li>
+                            <li>• Espejos laterales eléctricos</li>
+                            <li>• Bolsas de aire frontales para conductor y pasajero</li>
+                            <li>• Frenos ABS con distribución electrónica (EBD)</li>
+                            <li>• Control de estabilidad (dependiendo versión)</li>
+                            <li>• Llantas de acero de 15 pulgadas con tapas</li>
+                            <li>• Asientos traseros abatibles 60/40</li>
+                            <li>• Capacidad del tanque: aprox. 42 litros</li>
+                            <li>• Consumo promedio: 18-22 km/l (impresionante eficiencia)</li>
+                        </ul>
                     </div>
-                </div>
-                
-                <!-- Auto Compacto 5 - NUEVO: Honda Fit 2011 (imagen24.jpeg) -->
-                <div class="vehicle-card">
-                    <a href="24-honda-fit-2011.html" class="vehicle-image-link">
-                        <img src="AUTOS COMPACTOS/imagen24.png" alt="Honda Fit 2011" class="vehicle-image">
-                    </a>
-                    <div class="vehicle-info">
-                        <div class="vehicle-title">Honda Fit 2011</div>
-                        <div class="vehicle-price">RD$ 215,000</div>
+                    
+                    <div class="good-news" style="background-color: #e2f0d9; border-color: #c3e6cb;">
+                        <h4>💰 EXCELENTE RELACIÓN CALIDAD-PRECIO:</h4>
+                        <p>El Mazda Demio es uno de los autos compactos más valorados en su categoría por su <strong>duradera mecánica SKYACTIV</strong> y su bajo costo de operación. Esta unidad 2018 se ofrece a un precio muy competitivo de <strong>RD$ 345,000</strong>, lo que representa una excelente oportunidad para adquirir un vehículo japonés moderno, eficiente y confiable. Ideal para quienes buscan un primer auto, un vehículo para la universidad, o simplemente un transporte económico y funcional.</p>
                     </div>
                 </div>
             </div>
             
-            <!-- Botón de volver al inicio -->
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="index.html" class="back-home">← VOLVER AL INICIO</a>
+            <!-- Sección de 2 divs con imágenes y texto -->
+            <div class="gallery-details">
+                <h2 class="gallery-title">MAZDA DEMIO 2018 - GALERÍA</h2>
+                
+                <!-- Div 1 - Imagen 1 -->
+                <div class="detail-container">
+                    <div class="detail-image">
+                        <img src="mazda%20demio/imagen1.png" alt="Mazda Demio 2018 vista frontal">
+                    </div>
+                    <div class="detail-text">
+                        <h3>Vista Frontal - Diseño KODO Moderno</h3>
+                        <p>Esta imagen muestra la <span class="condition-highlight">elegante parrilla y los faros delanteros</span> del Mazda Demio 2018, que reflejan el lenguaje de diseño "KODO - Alma en Movimiento" de Mazda. Su diseño frontal es dinámico y moderno, con líneas fluidas que le dan una apariencia deportiva a pesar de ser un compacto. Los faros, la parrilla y el parachoques se presentan en buen estado, y la pintura conserva su brillo original. Es un vehículo con presencia y estilo, ideal para quienes valoran la estética sin sacrificar funcionalidad.</p>
+                    </div>
+                </div>
+                
+                <!-- Div 2 - Imagen 2 -->
+                <div class="detail-container">
+                    <div class="detail-image">
+                        <img src="mazda%20demio/imagen2.png" alt="Mazda Demio 2018 vista posterior/lateral">
+                    </div>
+                    <div class="detail-text">
+                        <h3>Vista Posterior - Funcionalidad Compacta</h3>
+                        <p>La vista posterior del Mazda Demio 2018 resalta su <span class="condition-highlight">diseño funcional y moderno</span>. Las líneas limpias y los grupos ópticos traseros bien integrados le otorgan una apariencia equilibrada. Este modelo es particularmente apreciado por su <span class="condition-highlight">excelente visibilidad y facilidad de estacionamiento</span>, características clave para la conducción urbana. El portón trasero ofrece un acceso práctico al área de carga, que puede ampliarse abatiendo los asientos traseros. Un auto pequeño por fuera, pero sorprendentemente espacioso por dentro.</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="compactos.html" class="back-home">← VER MÁS AUTOS COMPACTOS</a>
+                </div>
             </div>
         </div>
     </div>
@@ -900,9 +824,9 @@
     <!-- Sección única de contacto -->
     <div class="contact-section">
         <div class="contact-container">
-            <!-- H2 para la sección de contacto -->
-            <h2 style="color: #ffffff; margin-bottom: 15px; font-size: 1.6rem;">BOTY SALVAMENTOS Y USADOS</h2>
-            <div class="business-name">CONTACTO</div>
+            <div class="business-name">BOTY SALVAMENTOS Y USADOS</div>
+            
+            <div class="contact-title">CONTACTO</div>
             
             <div class="contacts">
                 <div class="contact-person">
@@ -916,13 +840,17 @@
                 </div>
             </div>
             
-            <div class="address">Carretera Mella Kilómetro 8 1/2, 8495 Cansino</div>
+            <div class="address">Zona Oriental, Alma Rosa Segunda.</div>
             
             <div class="schedule">
                 Lunes a Viernes: 7:00 AM - 6:00 PM<br>
                 Sábados y Domingos: 1:00 PM - 6:00 PM
             </div>
-            
+            <div class="footer-social">
+    <a href="https://www.instagram.com/salvamentosyusados/?__pwa=1" target="_blank" title="Instagram Salvamentos y Usados">
+        <img src="logos/instagram.png" alt="Instagram" class="footer-instagram">
+    </a>
+</div>
             <div class="rights">
                 <span class="rights-name">BOTY SALVAMENTOS Y USADOS</span><br>
                 <span class="copyright">© 2026 - TODOS LOS DERECHOS RESERVADOS</span>
@@ -933,7 +861,7 @@
     <!-- Botones flotantes de WhatsApp -->
     <div class="whatsapp-buttons">
         <!-- Botón 1: Victor Durán -->
-        <a href="https://wa.me/18296051025?text=Estoy%20interesado%20en%20un%20AUTO%20COMPACTO!" 
+        <a href="https://wa.me/18296051025?text=Estoy%20interesado%20en%20el%20Mazda%20Demio%202018!" 
            target="_blank" 
            class="whatsapp-btn"
            title="Contactar a Victor Durán por WhatsApp">
@@ -944,7 +872,7 @@
         </a>
         
         <!-- Botón 2: Chiki -->
-        <a href="https://wa.me/18295394647?text=Estoy%20interesado%20en%20un%20AUTO%20COMPACTO!" 
+        <a href="https://wa.me/18295394647?text=Estoy%20interesado%20en%20el%20Mazda%20Demio%202018!" 
            target="_blank" 
            class="whatsapp-btn"
            title="Contactar a Chiki por WhatsApp">
