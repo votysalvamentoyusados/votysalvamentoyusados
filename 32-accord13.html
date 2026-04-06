@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Honda Accord 2013 FULL - BOTY SALVAMENTOS Y USADOS</title>
+
+  <meta name="description" content="Honda Accord 2013 FULL chocado solo por el frente en BOTY Salvamentos y Usados, Alma Rosa Segunda. Precio RD$435,000.">
+  <meta name="keywords" content="Honda Accord 2013 RD, Accord chocado frontal republica dominicana, Honda Accord salvamento, sedan Honda Accord FULL">
+  <meta name="author" content="BOTY SALVAMENTOS Y USADOS">
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://www.botysalvamentosyusados.com/honda-accord-2013.html">
+
+  <meta name="geo.region" content="DO">
+  <meta name="geo.placename" content="Alma Rosa Segunda, Santo Domingo Este">
+  <meta name="geo.position" content="18.4889;-69.8516">
+  <meta name="ICBM" content="18.4889, -69.8516">
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: white;
+      color: #000000;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header con logo y menú hamburguesa */
+    header {
+      background-color: white;
+      padding: 15px 0;
+      border-bottom: 3px solid #333;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .logo-left {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #000000;
+      letter-spacing: 1.5px;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    .logo-left::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #666;
+    }
+
+    /* Menú hamburguesa */
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 24px;
+      cursor: pointer;
+      z-index: 1002;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: #333;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -8px);
+    }
+
+    /* Menú desplegable lateral derecho */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 280px;
+      height: 100vh;
+      background-color: white;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      z-index: 1001;
+      transition: right 0.3s ease;
+      overflow-y: auto;
+      padding-top: 0;
+    }
+
+    .side-menu.active {
+      right: 0;
+    }
+
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid #eee;
+      background-color: #f8f8f8;
+    }
+
+    .menu-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* Botón de cierre dentro del menú */
+    .close-menu {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: none;
+      border: none;
+      position: relative;
+    }
+
+    .close-menu span {
+      position: absolute;
+      width: 20px;
+      height: 2px;
+      background-color: #333;
+      border-radius: 1px;
+    }
+
+    .close-menu span:first-child {
+      transform: rotate(45deg);
+    }
+
+    .close-menu span:last-child {
+      transform: rotate(-45deg);
+    }
+
+    .close-menu:hover span {
+      background-color: #000;
+    }
+
+    .menu-items {
+      padding: 15px 0;
+    }
+
+    .menu-item {
+      display: block;
+      padding: 15px 25px;
+      color: #333;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-left: 4px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .menu-item:hover {
+      background-color: #f5f5f5;
+      color: #000;
+      border-left: 4px solid #666;
+    }
+
+    /* Sección del Honda Accord 2013 */
+    .vehicle-detail-section {
+      padding: 40px 0;
+    }
+
+    .vehicle-title-main {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #000;
+      text-align: center;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .vehicle-subtitle {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #dc3545;
+      text-align: center;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    .vehicle-price-main {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .vehicle-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .vehicle-image-container {
+      width: 100%;
+      height: 450px;
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .vehicle-main-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background-color: #f5f5f5;
+    }
+
+    .vehicle-info-container {
+      padding: 20px;
+    }
+
+    .vehicle-description {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .good-news {
+      background-color: #d4edda;
+      border: 1px solid #c3e6cb;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 20px;
+      color: #155724;
+    }
+
+    .good-news h4 {
+      color: #155724;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .good-news ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    .good-news li {
+      margin-bottom: 8px;
+    }
+
+    .damage-warning {
+      background-color: #fff3cd;
+      border: 1px solid #ffeaa7;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 20px;
+      color: #856404;
+    }
+
+    .damage-warning h4 {
+      color: #856404;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .damage-warning ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    .damage-warning li {
+      margin-bottom: 5px;
+    }
+
+    /* Sección de imágenes */
+    .gallery-details {
+      margin: 50px 0;
+    }
+
+    .gallery-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #000;
+      text-align: center;
+      margin-bottom: 40px;
+      letter-spacing: 1px;
+    }
+
+    .detail-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+      gap: 30px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .detail-container:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .detail-image {
+      flex: 1;
+      min-width: 300px;
+      height: 300px;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .detail-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .detail-text {
+      flex: 2;
+      padding: 10px;
+    }
+
+    .detail-text h3 {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #000;
+    }
+
+    .detail-text p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .condition-highlight {
+      color: #28a745;
+      font-weight: bold;
+    }
+
+    .damage-highlight {
+      color: #dc3545;
+      font-weight: bold;
+    }
+
+    /* Sección única de contacto */
+    .contact-section {
+      background-color: #666;
+      padding: 30px 0;
+      margin-top: auto;
+      color: #ffffff;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+    }
+
+    .contact-container {
+      text-align: center;
+      padding: 0 20px;
+      max-width: none;
+    }
+
+    .business-name {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #ffffff;
+      letter-spacing: 0.8px;
+    }
+
+    .contact-title {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    .contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 15px;
+      align-items: center;
+    }
+
+    .contact-person {
+      font-size: 0.95rem;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .phone-number {
+      font-size: 1rem;
+      color: #ffffff;
+      margin-top: 2px;
+    }
+
+    .address {
+      font-size: 0.95rem;
+      color: #ffffff;
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+
+    /* Footer */
+    .rights {
+      font-size: 0.95rem;
+      color: #ffffff;
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      font-weight: normal;
+      font-style: normal;
+      letter-spacing: 0.3px;
+      line-height: 1.4;
+    }
+
+    .rights-name {
+      color: #ffffff;
+      font-weight: normal;
+      font-size: 0.95rem;
+    }
+
+    .copyright {
+      font-size: 0.7rem;
+      color: #ddd;
+      margin-top: 3px;
+    }
+
+    /* Botones flotantes de WhatsApp */
+    .whatsapp-buttons {
+      position: fixed;
+      right: 20px;
+      bottom: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 999;
+    }
+
+    .whatsapp-btn {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-btn:hover {
+      transform: translateY(-5px);
+    }
+
+    .whatsapp-text {
+      background-color: #25D366;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+      white-space: nowrap;
+      box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
+    }
+
+    .whatsapp-icon {
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-btn:hover .whatsapp-icon {
+      background-color: #128C7E;
+      transform: scale(1.1);
+    }
+
+    .whatsapp-icon img {
+      width: 35px;
+      height: 35px;
+    }
+
+    /* Botón de volver al inicio */
+    .back-home {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .back-home:hover {
+      background-color: #000;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .vehicle-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .vehicle-image-container {
+        height: 400px;
+      }
+      .detail-container {
+        flex-direction: column;
+      }
+      .detail-container:nth-child(even) {
+        flex-direction: column;
+      }
+      .detail-image {
+        min-width: 100%;
+        height: 280px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .vehicle-title-main {
+        font-size: 1.8rem;
+      }
+      .vehicle-subtitle {
+        font-size: 1.1rem;
+      }
+      .vehicle-price-main {
+        font-size: 1.5rem;
+      }
+      .vehicle-image-container {
+        height: 350px;
+      }
+      .gallery-title {
+        font-size: 1.5rem;
+      }
+      .detail-image {
+        height: 250px;
+      }
+      .detail-text h3 {
+        font-size: 1.2rem;
+      }
+      .detail-text p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .vehicle-title-main {
+        font-size: 1.5rem;
+      }
+      .vehicle-subtitle {
+        font-size: 1rem;
+      }
+      .vehicle-price-main {
+        font-size: 1.3rem;
+      }
+      .vehicle-image-container {
+        height: 280px;
+      }
+      .detail-image {
+        height: 220px;
+        min-width: 100%;
+      }
+      .gallery-title {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<div class="side-menu" id="sideMenu">
+  <div class="menu-header">
+    <div class="menu-title">NAVEGACIÓN</div>
+    <button class="close-menu" id="closeMenu">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <div class="menu-items">
+    <a href="index.html" class="menu-item">INICIO</a>
+    <a href="sedan.html" class="menu-item">SEDAN</a>
+    <a href="compactos.html" class="menu-item">AUTOS COMPACTOS</a>
+    <a href="jeepeta.html" class="menu-item">JEEPETA</a>
+    <a href="camioneta.html" class="menu-item">CAMIONETAS</a>
+  </div>
+</div>
+
+<header>
+  <div class="header-content">
+    <div class="logo-left">BOTY SALVAMENTOS Y USADOS</div>
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="vehicle-detail-section">
+    <h1 class="vehicle-title-main">HONDA ACCORD 2013 FULL</h1>
+    <div class="vehicle-subtitle">⚠️ SALVAMENTO: CHOQUE FRONTAL - DAÑOS SOLO EN LA PARTE DELANTERA</div>
+    <div class="vehicle-price-main">RD$ 435,000</div>
+
+    <div class="vehicle-detail-grid">
+      <div class="vehicle-image-container">
+        <img src="32-2013 acord el fuul/imagen1.jpeg" alt="Honda Accord 2013 FULL chocado frontal" class="vehicle-main-image">
+      </div>
+
+      <div class="vehicle-info-container">
+        <div class="vehicle-description">
+          Este <span class="condition-highlight">Honda Accord 2013 versión FULL</span> es una unidad de salvamento que presenta <span class="damage-highlight">daños exclusivamente en la parte frontal</span>. El impacto afectó principalmente el parachoques, la fascia, el capó, los faros y el radiador. <span class="condition-highlight">La estructura del habitáculo, los laterales, la parte trasera y el interior están en excelentes condiciones</span>. Ideal para reparación o como fuente de repuestos de alta calidad.
+        </div>
+
+        <div class="good-news">
+          <h4>✅ POTENCIAL DE RECUPERACIÓN:</h4>
+          <ul>
+            <li>• <strong>MOTOR i-VTEC 2.4L</strong> – Motor de 4 cilindros en perfecto estado mecánico, sin daños internos.</li>
+            <li>• <strong>TRANSMISIÓN AUTOMÁTICA</strong> – Caja de 5 velocidades funcionando correctamente.</li>
+            <li>• <strong>INTERIOR FULL EQUIPADO</strong> – Asientos de cuero, pantalla multimedia, sunroof, climatizador automático.</li>
+            <li>• <strong>CARROCERÍA TRASERA Y LATERAL</strong> – Sin golpes, pintura original en buen estado.</li>
+            <li>• <strong>SISTEMA DE SUSPENSIÓN Y FRENOS</strong> – Componentes completamente funcionales.</li>
+          </ul>
+        </div>
+
+        <div class="damage-warning">
+          <h4>⚠️ DAÑOS ESPECÍFICOS (SOLO FRENTE):</h4>
+          <ul>
+            <li>• <span class="damage-highlight">Parachoques delantero roto y desprendido</span> – requiere reemplazo.</li>
+            <li>• <span class="damage-highlight">Fascia y rejilla frontal destruidas</span> – daños estéticos.</li>
+            <li>• <span class="damage-highlight">Capó con abolladura y deformación</span> – necesita reparación o cambio.</li>
+            <li>• <span class="damage-highlight">Radiador y condensador del A/C afectados</span> – requieren reemplazo.</li>
+            <li>• Ambos faros delanteros rotos – se necesitan cambiar.</li>
+            <li>• <span class="condition-highlight">Largueros frontales rectos y sin deformación estructural</span> – reparación sencilla.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-details">
+      <h2 class="gallery-title">ESTADO REAL DEL SALVAMENTO – HONDA ACCORD 2013 FULL</h2>
+
+      <div class="detail-container">
+        <div class="detail-image">
+          <img src="32-2013 acord el fuul/imagen1.jpeg" alt="Vista frontal Honda Accord 2013 choque">
+        </div>
+        <div class="detail-text">
+          <h3>Impacto Frontal Exclusivo</h3>
+          <p>Como se observa en la imagen, el <span class="damage-highlight">choque se concentró en la parte delantera</span> del vehículo. El parachoques, la rejilla, los faros y el capó recibieron el impacto, pero <span class="condition-highlight">los largueros y la estructura principal del chasis permanecen intactos</span>. Una reparación relativamente sencilla devolvería el auto a su estado original.</p>
+        </div>
+      </div>
+
+      <div class="detail-container">
+        <div class="detail-image">
+          <img src="32-2013 acord el fuul/imagen2.jpeg" alt="Lateral y carrocería Honda Accord">
+        </div>
+        <div class="detail-text">
+          <h3>Laterales y carrocería en perfecto estado</h3>
+          <p>Las puertas, los guardafangos delanteros y traseros, y toda la <span class="condition-highlight">carrocería desde el pilar A hacia atrás está impecable</span>. No presenta abolladuras, óxido ni daños en la pintura original. El vehículo se ve muy bien de los costados y la parte posterior.</p>
+        </div>
+      </div>
+
+      <div class="detail-container">
+        <div class="detail-image">
+          <img src="32-2013 acord el fuul/imagen3.jpeg" alt="Parte trasera Honda Accord">
+        </div>
+        <div class="detail-text">
+          <h3>Zona trasera completamente intacta</h3>
+          <p>La <span class="condition-highlight">parte trasera del Accord no presenta ningún tipo de daño</span>. El parachoques posterior, las luces traseras, la tapa del maletero y el sistema de escape están en condiciones óptimas. El maletero abre y cierra correctamente.</p>
+        </div>
+      </div>
+
+      <div class="detail-container">
+        <div class="detail-image">
+          <img src="32-2013 acord el fuul/imagen3.jpeg" alt="Interior FULL Honda Accord 2013">
+        </div>
+        <div class="detail-text">
+          <h3>Interior FULL EQUIPADO como nuevo</h3>
+          <p>El habitáculo de este Accord versión FULL está en <span class="condition-highlight">excelentes condiciones</span>. Asientos de cuero en buen estado, tablero con pantalla multimedia, volante con controles de audio, sunroof, climatizador automático, asientos eléctricos y todos los sistemas electrónicos funcionando perfectamente.</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="sedan.html" class="back-home">← VER MÁS SALVAMENTOS</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="contact-section">
+  <div class="contact-container">
+    <div class="business-name">BOTY SALVAMENTOS Y USADOS</div>
+    <div class="contact-title">CONTACTO</div>
+    <div class="contacts">
+      <div class="contact-person">
+        CHIKI
+        <div class="phone-number">(829) 539-4647</div>
+      </div>
+      <div class="contact-person">
+        VICTOR DURÁN
+        <div class="phone-number">829-605-1025</div>
+      </div>
+    </div>
+    <div class="address">Zona Oriental, Alma Rosa Segunda, Santo Domingo Este, República Dominicana.</div>
+    <div class="rights">
+      <span class="rights-name">BOTY SALVAMENTOS Y USADOS</span><br>
+      <span class="copyright">© 2026 - TODOS LOS DERECHOS RESERVADOS</span>
+    </div>
+  </div>
+</div>
+
+<div class="whatsapp-buttons">
+  <a href="https://wa.me/18296051025?text=Estoy%20interesado%20en%20el%20Honda%20Accord%202013%20FULL%20con%20choque%20frontal%20-%20RD%24435,000" target="_blank" class="whatsapp-btn">
+    <div class="whatsapp-text">VICTOR DURÁN<br>829-605-1025</div>
+    <div class="whatsapp-icon"><img src="logos/whatsapp.png" alt="WhatsApp"></div>
+  </a>
+  <a href="https://wa.me/18295394647?text=Estoy%20interesado%20en%20el%20Honda%20Accord%202013%20FULL%20con%20choque%20frontal%20-%20RD%24435,000" target="_blank" class="whatsapp-btn">
+    <div class="whatsapp-text">CHIKI<br>829-539-4647</div>
+    <div class="whatsapp-icon"><img src="logos/whatsapp.png" alt="WhatsApp"></div>
+  </a>
+</div>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const sideMenu = document.getElementById('sideMenu');
+  const menuOverlay = document.getElementById('menuOverlay');
+  const closeMenu = document.getElementById('closeMenu');
+
+  function closeMenuFunc() {
+    menuToggle.classList.remove('active');
+    sideMenu.classList.remove('active');
+    menuOverlay.classList.remove('active');
+  }
+
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.add('active');
+    sideMenu.classList.add('active');
+    menuOverlay.classList.add('active');
+  });
+
+  closeMenu.addEventListener('click', closeMenuFunc);
+  menuOverlay.addEventListener('click', closeMenuFunc);
+</script>
+</body>
+</html>
