@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Honda Civic EX 2013 - BOTY SALVAMENTOS Y USADOS</title>
+
+    <meta name="description" content="Honda Civic EX 2013 blanco disponible en BOTY Salvamentos y Usados, Alma Rosa Segunda, Santo Domingo Este. Precio RD$475,000.">
+    <meta name="keywords" content="Honda Civic 2013 RD, Civic usado blanco, auto compacto republica dominicana">
+    <meta name="author" content="BOTY SALVAMENTOS Y USADOS">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://www.botysalvamentosyusados.com/honda-civic-2013.html">
+
+    <meta name="geo.region" content="DO">
+    <meta name="geo.placename" content="Alma Rosa Segunda, Santo Domingo Este">
+    <meta name="geo.position" content="18.4889;-69.8516">
+    <meta name="ICBM" content="18.4889, -69.8516">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: white;
+            color: #000000;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: white;
+            padding: 15px 0;
+            border-bottom: 3px solid #333;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo-left {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000000;
+            letter-spacing: 1.5px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        .logo-left::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #666;
+        }
+        
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 24px;
+            cursor: pointer;
+            z-index: 1002;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(8px, -8px); }
+        
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 280px;
+            height: 100vh;
+            background-color: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+        }
+        
+        .side-menu.active { right: 0; }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .menu-overlay.active { opacity: 1; visibility: visible; }
+        
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            background-color: #f8f8f8;
+        }
+        
+        .menu-title { font-size: 1.3rem; font-weight: bold; color: #333; }
+        
+        .close-menu {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background: none;
+            border: none;
+            position: relative;
+        }
+        
+        .close-menu span {
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background-color: #333;
+        }
+        
+        .close-menu span:first-child { transform: rotate(45deg); }
+        .close-menu span:last-child { transform: rotate(-45deg); }
+        
+        .menu-items { padding: 15px 0; }
+        
+        .menu-item {
+            display: block;
+            padding: 15px 25px;
+            color: #333;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-item:hover { background-color: #f5f5f5; border-left: 4px solid #666; }
+
+        .vehicle-detail-section { padding: 40px 0; }
+        .vehicle-title-main { font-size: 2.2rem; font-weight: bold; text-align: center; margin-bottom: 10px; }
+        .vehicle-subtitle { font-size: 1.3rem; font-weight: bold; color: #28a745; text-align: center; margin-bottom: 10px; font-style: italic; }
+        .vehicle-price-main { font-size: 1.8rem; font-weight: bold; color: #333; text-align: center; margin-bottom: 40px; }
+        
+        .vehicle-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+        .vehicle-image-container { width: 100%; height: 450px; background-color: #f5f5f5; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); }
+        .vehicle-main-image { width: 100%; height: 100%; object-fit: contain; }
+        
+        .excellent-condition { background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; padding: 20px; margin-top: 20px; color: #155724; }
+        .condition-highlight { color: #28a745; font-weight: bold; }
+        .highlight-feature { color: #28a745; font-weight: bold; }
+
+        .gallery-details { margin: 50px 0; }
+        .gallery-title { font-size: 1.8rem; font-weight: bold; text-align: center; margin-bottom: 40px; }
+        .detail-container { display: flex; align-items: center; margin-bottom: 40px; gap: 30px; padding: 20px; background-color: #f9f9f9; border-radius: 8px; }
+        .detail-container:nth-child(even) { flex-direction: row-reverse; }
+        .detail-image { flex: 1; min-width: 300px; height: 300px; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; background-color: #fff; }
+        .detail-image img { width: 100%; height: 100%; object-fit: contain; }
+        .detail-text { flex: 2; padding: 10px; }
+
+        .contact-section { background-color: #666; padding: 30px 0; color: #ffffff; text-align: center; margin-top: auto; }
+        .footer-social { margin-top: 15px; }
+        .footer-instagram { width: 55px; height: 55px; border: 2px solid #666; background-color: #666; padding: 5px; }
+
+        .whatsapp-buttons { position: fixed; right: 20px; bottom: 100px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
+        .whatsapp-btn { text-decoration: none; display: flex; flex-direction: column; align-items: center; }
+        .whatsapp-text { background-color: #25D366; color: white; padding: 8px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 5px; }
+        .whatsapp-icon { width: 60px; height: 60px; background-color: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .whatsapp-icon img { width: 35px; height: 35px; }
+
+        .back-home { display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #333; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; }
+
+        @media (max-width: 1024px) {
+            .vehicle-detail-grid { grid-template-columns: 1fr; }
+            .detail-container, .detail-container:nth-child(even) { flex-direction: column; }
+            .vehicle-image-container { height: 350px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-overlay" id="menuOverlay"></div>
+    
+    <div class="side-menu" id="sideMenu">
+        <div class="menu-header">
+            <div class="menu-title">NAVEGACIÓN</div>
+            <button class="close-menu" id="closeMenu">
+                <span></span><span></span>
+            </button>
+        </div>
+        <div class="menu-items">
+            <a href="index.html" class="menu-item">INICIO</a>
+            <a href="jeepeta.html" class="menu-item">JEEPETA</a>
+            <a href="camioneta.html" class="menu-item">CAMIONETAS</a>
+            <a href="compactos.html" class="menu-item">AUTOS COMPACTOS</a>
+            <a href="sedan.html" class="menu-item">SEDAN</a>
+        </div>
+    </div>
+    
+    <header>
+        <div class="header-content">
+            <div class="logo-left">BOTY SALVAMENTOS Y USADOS</div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="vehicle-detail-section">
+            <h1 class="vehicle-title-main">HONDA CIVIC EX 2013</h1>
+            <div class="vehicle-subtitle">SEDAN ELEGANTE - EXCELENTE OPORTUNIDAD</div>
+            <div class="vehicle-price-main">RD$ 475,000</div>
+            
+            <div class="vehicle-detail-grid">
+                <div class="vehicle-image-container">
+                    <img src="35-Honda Civic EX 2013/imagen3.png" alt="Honda Civic EX 2013" class="vehicle-main-image">
+                </div>
+                
+                <div class="vehicle-info-container">
+                    <div class="vehicle-description">
+                        Este Honda Civic EX 2013 es un sedan en <span class="condition-highlight">MUY BUENAS CONDICIONES</span>. Un vehículo reconocido mundialmente por su fiabilidad, confort de marcha y excelente valor de reventa. Color blanco impecable, ideal para el día a día en la ciudad o viajes largos por su economía de combustible.
+                    </div>
+                    
+                    <div class="excellent-condition">
+                        <h4>✅ ASPECTOS DESTACADOS</h4>
+                        <ul>
+                            <li>• <strong>MANTENIMIENTO AL DÍA</strong> - Motor y transmisión suaves</li>
+                            <li>• <strong>INTERIORES BIEN CUIDADOS</strong> - Tapicería en excelente estado</li>
+                            <li>• <strong>TECNOLOGÍA EX</strong> - Pantalla inteligente y controles al volante</li>
+                            <li>• <strong>SEGURIDAD COMPLETA</strong> - Airbags frontales y laterales operativos</li>
+                            <li>• <strong>AIRE ACONDICIONADO</strong> - Enfriando perfectamente</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-details">
+                <h2 class="gallery-title">DETALLES DEL VEHÍCULO</h2>
+                
+                <div class="detail-container">
+                    <div class="detail-image">
+                        <img src="35-Honda Civic EX 2013/imagen1.png" alt="Vista Trasera Honda Civic">
+                    </div>
+                    <div class="detail-text">
+                        <h3>Diseño Aerodinámico y Moderno</h3>
+                        <p>La parte trasera del Civic 2013 mantiene una línea moderna y deportiva. Las luces traseras y el baúl se encuentran en <span class="condition-highlight">perfecto estado estético</span>. El color blanco resalta su elegancia y ayuda a mantener el vehículo fresco bajo el sol dominicano.</p>
+                    </div>
+                </div>
+                
+                <div class="detail-container">
+                    <div class="detail-image">
+                        <img src="35-Honda Civic EX 2013/imagen2.png" alt="Frente Honda Civic">
+                    </div>
+                    <div class="detail-text">
+                        <h3>Frontal con Danos</h3>
+                        <p>El frente muestra un choque.  Este modelo es famoso por su <span class="condition-highlight">eficiencia de combustible</span> y su motor i-VTEC que ofrece una respuesta ágil en cualquier situación.</p>
+                    </div>
+                </div>
+                
+                <div class="detail-container">
+                    <div class="detail-image">
+                        <img src="35-Honda Civic EX 2013/imagen4.png" alt="Interior Honda Civic">
+                    </div>
+                    <div class="detail-text">
+                        <h3>Interior Tecnológico y Espacioso</h3>
+                        <p>El interior cuenta con el característico tablero de doble nivel de Honda, poniendo la información a la vista del conductor. <span class="condition-highlight">Bolsas de aire intactas</span> y controles de audio en el volante para una conducción segura y confortable.</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="index.html" class="back-home">← VOLVER AL INICIO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="contact-section">
+        <div class="business-name">BOTY SALVAMENTOS Y USADOS</div>
+        <div class="contact-title">CONTACTO</div>
+        <div style="margin-bottom: 15px;">
+            <strong>CHIKI:</strong> (829) 539-4647<br>
+            <strong>VICTOR DURAN:</strong> 829-605-1025
+        </div>
+        <div class="address">zona oriental, Alma Rosa Segunda.</div>
+        <div class="footer-social">
+            <a href="https://www.instagram.com/salvamentosyusados/?__pwa=1" target="_blank">
+                <img src="logos/instagram.png" alt="Instagram" class="footer-instagram">
+            </a>
+        </div>
+        <div style="margin-top: 20px; font-size: 0.8rem; opacity: 0.8;">
+            © 2026 - TODOS LOS DERECHOS RESERVADOS
+        </div>
+    </div>
+    
+    <div class="whatsapp-buttons">
+        <a href="https://wa.me/18296051025?text=Interesado%20en%20el%20Honda%20Civic%202013" target="_blank" class="whatsapp-btn">
+            <div class="whatsapp-text">VICTOR DURAN</div>
+            <div class="whatsapp-icon"><img src="logos/whatsapp.png" alt="WhatsApp"></div>
+        </a>
+        <a href="https://wa.me/18295394647?text=Interesado%20en%20el%20Honda%20Civic%202013" target="_blank" class="whatsapp-btn">
+            <div class="whatsapp-text">CHIKI</div>
+            <div class="whatsapp-icon"><img src="logos/whatsapp.png" alt="WhatsApp"></div>
+        </a>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const sideMenu = document.getElementById('sideMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const closeMenu = document.getElementById('closeMenu');
+        
+        function toggleMenu() {
+            sideMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+    </script>
+</body>
+</html>
